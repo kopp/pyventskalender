@@ -1,0 +1,16 @@
+{
+    "Belohnungen": [
+        {
+            "Name": "Schokolade",
+            "Gewichtung": 2
+        },
+        {
+            "Name": "Serie schauen",
+            "Gewichtung": 2
+        },
+        {
+            "Name": "Buch lesen",
+            "Gewichtung": 3
+        }
+    ]
+}
