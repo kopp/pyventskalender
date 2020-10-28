@@ -1,7 +1,9 @@
 # Neben den einfachen Datenstrukturen, die wir bisher verwendet haben (`int`,
 # `str`, `float`, `bool`), gibt es auch komplexere, zusammengesetzte
 # Strukturen.
-# Heute wollen wir uns `list` und `dictionary` anschauen.
+# Heute wollen wir uns die Liste, `list`, anschauen.
+# Sie ist ein Beispiel für einen Container, also ein Objekt, das viele weitere
+# Objekte enthält.
 
 from typing import List
 

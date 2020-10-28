@@ -2,7 +2,7 @@ from unittest import TestCase
 from unittest.mock import patch
 from io import StringIO
 
-from pyventskalender import tag06 as heute
+from pyventskalender import tag06_loesung as heute
 
 def make_fake_input(replies, prompts):
     def fake_input(prompt):
