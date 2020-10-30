@@ -1,5 +1,27 @@
 from datetime import date
 from argparse import ArgumentParser
+from urllib.request import urlopen
+from os.path import join, abspath, dirname, exists
+from os import makedirs
+from typing import List
+from re import compile
+from json import loads
+from subprocess import run
+from sys import executable
+from traceback import format_exc
+
+
+GITHUB_RAW_BASE_PATH = "https://raw.githubusercontent.com/kopp/pyventskalender/master/"
+ZUSAETZLICH_HERUNTERLADEN_JSON = "pyventskalender.zusaetzlich-herunterladen.json"
+# Format:
+# {
+#   "<tag-nummer>": [
+#                      { "url": "<url>", "lokal": "<pfad>", "ausfuehren": "<bool>" }
+#                   ]
+# }
+LOCAL_BASE_PATH = abspath(dirname(__file__))
+VERWEIS_AUF_WEITERE_DATEIEN_RE = compile(r"^# Setzt Datei (.+) voraus$")
+
 
 def hole_aktuellen_tag_im_advent() -> int:
     heute = date.today()
@@ -10,11 +32,102 @@ def hole_aktuellen_tag_im_advent() -> int:
     return heute.day
 
 
+def _stelle_sicher_dass_ordner_existiert_fuer(absoluter_dateipfad: str):
+    ordner = dirname(absoluter_dateipfad)
+    if not exists(ordner):
+        makedirs(ordner, exist_ok=True)
+
+
+def _lade_datei_aus_internet(url: str, dateipfad: str, ueberschreiben: bool = False):
+    antwort = urlopen(url)
+    inhalt = antwort.read()
+    lokaler_pfad = join(LOCAL_BASE_PATH, dateipfad)
+    modus_zum_schreiben = "w" if ueberschreiben else "x"
+    _stelle_sicher_dass_ordner_existiert_fuer(lokaler_pfad)
+    with open(lokaler_pfad, modus_zum_schreiben) as lokale_datei:
+        lokale_datei.write(inhalt.decode("utf-8"))
+
+
+def _lade_datei_von_github(dateipfad: str, ueberschreiben: bool = False):
+    url = GITHUB_RAW_BASE_PATH + dateipfad
+    _lade_datei_aus_internet(url, dateipfad, ueberschreiben)
+
+
+def _suche_weitere_abhaengige_dateien_in(dateipfad: str) -> List[str]:
+    abhaengige_dateien = []
+    with open(dateipfad, "r") as datei:
+        for zeile in datei:
+            uebereinstimmung = VERWEIS_AUF_WEITERE_DATEIEN_RE.match(zeile)
+            if uebereinstimmung:
+                verwiesene_datei = uebereinstimmung.group(1)
+                abhaengige_dateien.append(verwiesene_datei)
+    return abhaengige_dateien
+
+
+def _versuche_datei_von_github_zu_laden(dateipfad: str, ueberschreiben=True):
+    try:
+        _lade_datei_von_github(dateipfad, ueberschreiben)
+    except:  # noqa
+        print("Fehler beim Herunterladen von {} -- bitte nochmal versuchen"
+              " oder kompetente Hilfe holen.".format(datei))
+
+
+def _lade_zusaetzliche_dateien_herunter(
+        tag: int,
+        url: str = GITHUB_RAW_BASE_PATH + ZUSAETZLICH_HERUNTERLADEN_JSON,
+        ):
+    try:
+        antwort = urlopen(url)
+        inhalt = loads(antwort.read())
+    except:  # noqa
+        print("Fehler beim Herunterladen zusätzlicher Dateien -- bitte"
+              " professionelle Hilfe holen.  Fehler {}".format(format_exc()))
+        return
+    if str(tag) in inhalt:
+        for datei in inhalt[str(tag)]:
+            try:
+                _lade_datei_aus_internet(
+                        datei["url"],
+                        datei["lokal"],
+                        True
+                )
+                if datei["ausfuehren"]:
+                    run([executable, datei["lokal"]])
+            except:  # noqa
+                print("Fehler beim Herunterladen von {} von {} -- bitte"
+                      " professionelle Hilfe holen.  Fehler {}".format(
+                          datei["lokal"],
+                          datei["url"],
+                          format_exc(),
+                      ))
+
+
 def aktualisiere_problem_tag(tag: int) -> None:
     print("Aktualisiere auf Tag {}".format(tag))
-    # Neue Datein: tag{tag}, tag{tag-1}_loesung und test_tag{tag} und evtl mehr
-    # Geaendert: in test_tag{tag-1} wird aus tag{tag-1} -> tag{tag-1}_loesung
-    raise NotImplementedError("Das fehlt noch...")
+    # TODO: Nachschauen, ob tag-1 da ist und darauf reagieren!
+    # suche, was man runterladen muss
+    datei_des_tages = "pyventskalender/tag{:02d}.py".format(tag)
+    neue_dateien = [
+            datei_des_tages,
+            "test/test_tag{:02d}.py".format(tag),
+            ]
+    test_von_gestern = None
+    if tag > 1:
+        neue_dateien.append("pyventskalender/tag{:02d}_loesung.py".format(tag - 1))
+        test_von_gestern = "test/test_tag{:02d}.py".format(tag - 1)
+    else:
+        neue_dateien.append("pyventskalender/__init__.py")
+        neue_dateien.append("test/__init__.py")
+    # lade es herunter
+    _lade_zusaetzliche_dateien_herunter(tag)
+    if test_von_gestern is not None:
+        # Geaendert: in test_tag{tag-1} wird aus tag{tag-1} -> tag{tag-1}_loesung
+        # Die Datei muss also ueberschrieben werden.
+        _versuche_datei_von_github_zu_laden(test_von_gestern, True)
+    for datei in neue_dateien:
+        _versuche_datei_von_github_zu_laden(datei)
+    for datei in _suche_weitere_abhaengige_dateien_in(datei_des_tages):
+        _versuche_datei_von_github_zu_laden(datei)
 
 
 def _verarbeite_kommandozeilenparameter() -> int:

@@ -2,6 +2,7 @@ def addiere_zahlen(a, b):
     summe = a + b
     return summe
 
+
 def bilde_durchschnitt(a, b, c, d, e):
     summe = addiere_zahlen(a, b)
     summe = addiere_zahlen(c, summe)
@@ -16,6 +17,7 @@ def elchgeraeusch(wiederholungen):
     for i in range(wiederholungen):
         elchausspuch += "Mööö "
     return elchausspuch
+
 
 def katzengeraeusch(wiederholungen):
     katzenausspuch = ""

@@ -1,10 +1,12 @@
-from unittest import TestCase 
+from unittest import TestCase
+try:
+    from pyventskalender import tag04_loesung as heute
+except ImportError:
+    from pyventskalender import tag04 as heute
 
-from pyventskalender import tag04_loesung as heute
 
+class Tag04Tests(TestCase):
 
-class Tag04Tests(TestCase): 
-      
     def test_ich_haette_gerne_so_viele_katzen(self):
         self.assertEqual(
             heute.ich_haette_gerne_so_viele_katzen(1),

@@ -1,10 +1,13 @@
-from unittest import TestCase 
+from unittest import TestCase
 from unittest.mock import patch, mock_open
 
-from pyventskalender import tag09_loesung as heute
+try:
+    from pyventskalender import tag09_loesung as heute
+except ImportError:
+    from pyventskalender import tag09 as heute
 
 
-class Tag09Tests(TestCase): 
+class Tag09Tests(TestCase):
 
     def test_wie_viele_messungen_von(self):
         pseudo_file = mock_open(read_data="""
@@ -41,4 +44,4 @@ class Tag09Tests(TestCase):
             heute.durchschnitt(list(range(51))),
             25,
         )
-        
+

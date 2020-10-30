@@ -1,9 +1,12 @@
-from unittest import TestCase 
+from unittest import TestCase
 
-from pyventskalender import tag08_loesung as heute
+try:
+    from pyventskalender import tag08_loesung as heute
+except ImportError:
+    from pyventskalender import tag08 as heute
 
 
-class Tag08Tests(TestCase): 
+class Tag08Tests(TestCase):
     NICHTSAEUGER = ["Eidechse", "Frosch", "Ente", "Vogel"]
 
     def _teste_tierset(self, tier_tags):
@@ -24,7 +27,7 @@ class Tag08Tests(TestCase):
                 tiere.append(Tag08Tests.NICHTSAEUGER[index])
         hoffentlich_saeugetiere = heute.saeugetiere_aus(tiere)
         self.assertEqual(hoffentlich_saeugetiere, saeugetiere)
-      
+
     def test_saeugetiere_aus(self):
         heute.BEKANNTE_SAEUGETIERE
         self._teste_tierset(["s0"])

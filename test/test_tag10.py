@@ -1,10 +1,13 @@
-from unittest import TestCase 
+from unittest import TestCase
 from unittest.mock import patch, mock_open
 
-from pyventskalender import tag10 as heute
+try:
+    from pyventskalender import tag10_loesung as heute
+except ImportError:
+    from pyventskalender import tag10 as heute
 
 
-class Tag10Tests(TestCase): 
+class Tag10Tests(TestCase):
 
     def test_extrahiere_gewichte(self):
         pseudo_file = mock_open(read_data="""

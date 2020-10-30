@@ -1,3 +1,5 @@
+# Setzt Datei pyventskalender/beispieldaten_gewichte.txt voraus.
+#
 # Ein beliebtes Problem, das man mit Python lösen kann, ist, eine Textdatei zu
 # durchsuchen und daraus Daten zu generieren.
 # Hier wollen wir uns die Datei `beispieldaten_gewichte.txt` anschauen.

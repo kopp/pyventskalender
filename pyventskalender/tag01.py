@@ -39,4 +39,4 @@
 
 # %%
 
-print("Adee Welt") 
+print("Adee Welt")

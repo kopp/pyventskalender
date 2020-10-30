@@ -3,6 +3,7 @@ import re
 
 GEWICHT_RE = re.compile(r"(\d+)\.(\d+). (.+) wiegt (\d+)kg")
 
+
 def extrahiere_gewichte(dateiname: str) -> List[List[str]]:
     gewichte = []
     with open(dateiname, "r") as datei:
