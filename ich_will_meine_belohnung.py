@@ -6,7 +6,8 @@ from random import seed, choices
 
 
 PROJECT_TOPLEVEL_DIR = path.dirname(path.realpath(__file__))
-PROJECT_KONFIGURATION_DATEI = "pyventskalender.config.json"
+PROJECT_STANDARD_KONFIGURATION_DATEI = "pyventskalender.default-config.json"
+PROJECT_ANGEPASSTE_KONFIGURATION_DATEI = "pyventskalender.config.json"
 PROJECT_CODE_DIR = "pyventskalender"
 
 
@@ -22,7 +23,11 @@ def lasse_unit_tests_laufen() -> TextTestResult:
 
 def _lade_konfiguration():
     json_konfigurationsdatei = path.join(
-        PROJECT_TOPLEVEL_DIR, PROJECT_KONFIGURATION_DATEI)
+        PROJECT_TOPLEVEL_DIR, PROJECT_ANGEPASSTE_KONFIGURATION_DATEI)
+    if not path.exists(json_konfigurationsdatei):
+        # Keine Angepasste Konfiguration gefunden; Standard wird verwendet
+        json_konfigurationsdatei = path.join(
+            PROJECT_TOPLEVEL_DIR, PROJECT_STANDARD_KONFIGURATION_DATEI)
     with open(json_konfigurationsdatei, "r") as dateihandle:
         dateiinhalt = dateihandle.read()
         konfiguration = loads(dateiinhalt)
@@ -44,7 +49,7 @@ def _finde_belohnungen() -> Tuple[List["str"], List[int]]:
 
 def _bestimme_dateigroesse_python_files_in_bytes(pfad):
     dateigroesse_summe = 0
-    for ordner, _, dateien in walk(pfad): 
+    for ordner, _, dateien in walk(pfad):
         for datei in dateien:
             if datei.endswith(".py"):
                 kompletter_pfad_zu_datei = path.join(ordner, datei)

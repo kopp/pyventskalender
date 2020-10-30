@@ -1,4 +1,4 @@
-# Die Idee
+# PyVentskalender -- Die Idee
 
 Jeden Tag gibt es eine (hoffentlich) einfache Aufgabe in Python, die gelöst
 werden muss.
@@ -30,3 +30,36 @@ und damit kann man sie auch ausführen, indem man hier
     python -m unittest
 
 eingibt.
+
+
+# Den PyVentskalender einrichten
+
+## Grundlagen
+
+- Python muss installiert sein, sodass man es in der Kommandozeile direkt aufrufen kann (also `python` eintippen muss reichen).
+  - Unter Windows ist die
+    [Installation per Microsoft Store](https://www.microsoft.com/en-us/p/python-39/9p7qfqmjrfp7)
+    empfohlen.
+  - Unter Linux ist die Installation aus Paketquellen empfohlen
+    (Ubuntu: `sudo apt install python3`, Arch Linux: `sudo pacman -S python`, ...)
+  - Unter Mac OS ist die Installation per Brew `brew install python3` empfohlen.
+- [Visual Studio Code](https://code.visualstudio.com/) muss installiert sein.
+- Das
+  [Python Plugin für Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  muss in Visual Studio Code installiert sein.
+
+## Den PyVentskalender selbst "installieren"
+
+Es reicht, die Datei
+[`gib_mir_die_heutige_aufgabe.py`](gib_mir_die_heutige_aufgabe.py)
+in einen bisher leeren Ordner zu legen, dann kann man direkt loslegen.
+Wenn die Datei ausgeführt wird, lädt sie automatisch alles weitere herunter.
+
+Es gibt eine Konfigurationsdatei für den Kalender.
+Hier können bspw. die Belohnungen, die man bekommen kann, festgelegt werden.
+Standardmäßig wird die Datei
+[`pyventskalender.default-config.json`](pyventskalender.default-config.json)
+heruntergeladen.
+Um eine eigene Konfiguration zu hinterlegen, sollte diese Datei angepasst werden und unter den Namen
+[`pyventskalender.config.json`](pyventskalender.config.json)
+gespeichert werden.
