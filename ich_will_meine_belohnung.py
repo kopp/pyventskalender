@@ -1,5 +1,5 @@
 from unittest import defaultTestLoader, TextTestRunner, TextTestResult
-from os import path, walk, stat
+from os import path, walk, stat, devnull
 from json import loads
 from typing import List, Tuple
 from random import seed, choices
@@ -16,7 +16,7 @@ def lasse_unit_tests_laufen() -> TextTestResult:
         start_dir=path.join(PROJECT_TOPLEVEL_DIR, "test"),
         top_level_dir=PROJECT_TOPLEVEL_DIR,
     )
-    test_ausfuehrer = TextTestRunner()
+    test_ausfuehrer = TextTestRunner(stream=open(devnull, "w"))
     test_resultate = test_ausfuehrer.run(gefundene_tests)
     return test_resultate
 
@@ -75,7 +75,11 @@ def belohnung_wenn_unittests_ok():
     else:
         print("Leider scheinen noch nicht alle Tests zu funktionieren.")
         print("Hier folgt eine Liste von Tests, die noch fehlschlagen:")
-        unit_test_ergebnisse.printErrors()
+        for fehler, traceback in unit_test_ergebnisse.errors + unit_test_ergebnisse.failures:
+            print("\n")
+            print("--> Fehlschlag in Test {}:".format(str(fehler)))
+            print(traceback)
+        print("\n")
         print("Bitte versuche es weiter.")
         print("Viel Erfolg!")
 
