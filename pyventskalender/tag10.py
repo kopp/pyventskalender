@@ -42,8 +42,14 @@ def etwas_moegen(text: str):
 # Schreibe jetzt eine Funktion, die die Gewichte-Datei Zeile für Zeile ließt
 # und jeweils Name und Gewicht extrahiert.
 # Die Ausgabe erfolgt als Liste, die für jede übersetzte Zeile wieder eine
-# Liste mit Name und Gewicht enthält, also bspw.
-#
+# Liste mit Name und Gewicht enthält, also bspw. erzeugt
+#    extrahiere_gewichte("beispieldaten_gewichte.txt")
+# den Output
+#    [['Herrmann', '72'],
+#     ['Caro', '62'],
+#     ['Herrmann', '73'],
+#     ['Caro', '60'],
+#     ... ]
 #
 # Hinweis: Um eine Regular expression zu testen, ist es hilfreich, das in der
 # interaktiven Konsole zu machen.
@@ -56,6 +62,9 @@ def etwas_moegen(text: str):
 #     re.compile(r"foo (...) asdf").match("foo bar asdf").groups()
 # In der interaktiven Konsole kann man dann immer wieder die vorherige Zeile
 # per Pfeiltaste nach oben aufrufen, leicht modifizieren und wieder versuchen.
+#
+# Hinweis: Die Tests zu dieser Funktion verwenden nicht nur die Beispieldaten,
+# sondern auch anderen Daten!
 
 from typing import List
 import re
