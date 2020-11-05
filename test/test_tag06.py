@@ -9,6 +9,11 @@ except ImportError:
 
 
 def make_fake_input(replies, prompts):
+    """
+    Create a function to use as mock for `input` that will store the prompt
+    (passed to `input`) in `prompts` and that returns the `replies` as
+    `input` would return a reply the user types.
+    """
     def fake_input(prompt):
         prompts.append(prompt)
         return replies.pop(0)
