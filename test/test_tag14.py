@@ -30,3 +30,20 @@ class Tag14Tests(TestCase):
             self.assertEqual(
                 heute.galgenmannbild(i), HANGMANPICS[i], 
                 msg="Bild für {} Fehler stimmt nicht".format(i))
+
+    def test_maximale_fehler_existiert(self):
+        self.assertIn("VERLOREN_BEI_SO_VIELEN_FEHLERN", dir(heute))
+
+    def test_maximale_fehler_wert(self):
+        from pyventskalender.galgenmannbilder import HANGMANPICS
+        self.assertEqual(heute.VERLOREN_BEI_SO_VIELEN_FEHLERN, len(HANGMANPICS) - 1)
+
+    def test_zu_ratendes_wort(self):
+        self.assertEqual(heute.zu_ratendes_wort("heute", set("heute")), "_____",
+                         msg="Wenn noch alles erraten werden soll, muss _____ rauskommen")
+        self.assertEqual(heute.zu_ratendes_wort("heute", set("h")), "_eute")
+        self.assertEqual(heute.zu_ratendes_wort("heute", set("e")), "h_ut_",
+                         msg="Ein Buchstabe kann mehrmals vorkommen")
+        self.assertEqual(heute.zu_ratendes_wort("heute", set("hte")), "__u__")
+        self.assertEqual(heute.zu_ratendes_wort("heute", []), "heute",
+                         msg="Wenn nichts mehr zu erraten ist, dann gib das Wort aus")
