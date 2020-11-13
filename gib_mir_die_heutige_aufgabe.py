@@ -20,7 +20,7 @@ ZUSAETZLICH_HERUNTERLADEN_JSON = "pyventskalender.zusaetzlich-herunterladen.json
 #                   ]
 # }
 LOCAL_BASE_PATH = abspath(dirname(__file__))
-VERWEIS_AUF_WEITERE_DATEIEN_RE = compile(r"^# Setzt Datei (.+) voraus$")
+VERWEIS_AUF_WEITERE_DATEIEN_RE = compile(r"^# Setzt Datei (.+) voraus.$")
 
 
 def hole_aktuellen_tag_im_advent() -> int:
@@ -69,7 +69,7 @@ def _versuche_datei_von_github_zu_laden(dateipfad: str, ueberschreiben=True):
         _lade_datei_von_github(dateipfad, ueberschreiben)
     except:  # noqa
         print("Fehler beim Herunterladen von {} -- bitte nochmal versuchen"
-              " oder kompetente Hilfe holen.".format(datei))
+              " oder kompetente Hilfe holen.".format(dateipfad))
 
 
 def _lade_zusaetzliche_dateien_herunter(
@@ -126,8 +126,8 @@ def aktualisiere_problem_tag(tag: int) -> None:
         _versuche_datei_von_github_zu_laden(test_von_gestern, True)
     for datei in neue_dateien:
         _versuche_datei_von_github_zu_laden(datei)
-    for datei in _suche_weitere_abhaengige_dateien_in(datei_des_tages):
-        _versuche_datei_von_github_zu_laden(datei)
+        for abhaengige_datei in _suche_weitere_abhaengige_dateien_in(datei):
+            _versuche_datei_von_github_zu_laden(abhaengige_datei)
 
 
 def _verarbeite_kommandozeilenparameter() -> int:
