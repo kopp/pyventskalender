@@ -13,6 +13,7 @@
 - Tag11: dictionary -- aus gewichten: {name: [gewichte]}
 - Tag12: Exceptions: Zugriff auf Key der nicht vorhanden ist -> Exception (zuerst test per `in`)
 - Tag13: Mad Libs
+- Tag14: Galgenmann
 
 
 - keyword arguments, default values
