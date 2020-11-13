@@ -45,7 +45,62 @@ except ImportError:
 # Schreibe jetzt eine Funktion `galgenmannbild`, die als Parameter die Anzahl
 # an Fehlern entgegennimmt und das Bild zurückliefert das der Anzahl an Fehlern
 # entspricht.
+# Du kannst sie testen per bspw. `print(galgenmannbild(3))`
+
 
 def galgenmannbild(anzahl_fehler: int) -> str:
     return HANGMANPICS[anzahl_fehler]
+
+# %%
+
+
+MAXIMAL_ERLAUBTE_FEHLER = len(HANGMANPICS) - 1
+
+
+def zeige_zu_ratendes_wort(gesuchtes_wort, fehlende_buchstaben):
+    anzuzeigendes_wort = gesuchtes_wort
+    for fehlender_buchstabe in fehlende_buchstaben:
+        anzuzeigendes_wort = anzuzeigendes_wort.replace(fehlender_buchstabe, "_")
+    print("Gesucht: {}".format(anzuzeigendes_wort))
+
+
+def ist_buchstabe(eingabe_von_nutzer):
+    if len(eingabe_von_nutzer) != 1:
+        print("Bitte genau einen Buchstaben angeben")
+        return False
+    return True
+
+
+def ist_aufgeben(eingabe_von_nutzer):
+    return eingabe_von_nutzer.lower() == "aufgeben"
+
+
+def galgenmannspiel(gesuchtes_wort: str):
+    gesuchtes_wort = gesuchtes_wort.strip()
+    anzahl_fehler = 0
+    noch_gesuchte_buchstaben = set(gesuchtes_wort.lower())
+    falsch_geratene_buchstaben = []
+    while anzahl_fehler < MAXIMAL_ERLAUBTE_FEHLER:
+        zeige_zu_ratendes_wort(gesuchtes_wort, noch_gesuchte_buchstaben)
+        eingabe = input("Rate einen Buchstaben")
+        if ist_aufgeben(eingabe):
+            break
+        if not ist_buchstabe(eingabe):
+            continue
+        buchstabe = eingabe.strip().lower()
+        if buchstabe in noch_gesuchte_buchstaben:
+            noch_gesuchte_buchstaben.remove(buchstabe)
+            if len(noch_gesuchte_buchstaben) == 0:
+                print("Erraten!  Das Wort war {}".format(gesuchtes_wort))
+                return
+        else:
+            falsch_geratene_buchstaben.append(buchstabe)
+            anzahl_fehler += 1
+            print("{} ist leider falsch; bisher falsch geraten: {}".format(
+                buchstabe,
+                falsch_geratene_buchstaben))
+            print(galgenmannbild(anzahl_fehler))
+    print("Leider nicht geklappt -- das Wort war {}".format(gesuchtes_wort))
+
+
 # %%

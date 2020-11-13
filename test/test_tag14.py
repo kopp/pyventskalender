@@ -15,8 +15,11 @@ class Tag14Tests(TestCase):
         erwarteter_dateipfad = abspath(join(dirname(__file__), pardir, "pyventskalender", "galgenmannbilder.py"))
         self.assertTrue(exists(erwarteter_dateipfad))
 
-    def test_import_bilder(self):
+    def test_import_file(self):
         from pyventskalender import galgenmannbilder
+
+    def test_import_bilder(self):
+        from pyventskalender.galgenmannbilder import HANGMANPICS
 
     def test_galgenmannbild_exists(self):
         self.assertIn('galgenmannbild', dir(heute))
