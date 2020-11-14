@@ -20,12 +20,9 @@ except ImportError:
 # Definiere deshalb eine Funktion `ist_buchstabe` die eine Eingabe als `str`
 # entgegennimmt und ausgibt, ob es sich um genau ein Zeichen handelt (und nicht
 # mehr oder weniger).
+# Bitte annotiere dabei die Typen der Eingabe und des Rückgabewerts.
 
-def ist_buchstabe(eingabe_von_nutzer: str) -> bool:
-    if len(eingabe_von_nutzer) != 1:
-        print("Bitte genau einen Buchstaben angeben")
-        return False
-    return True
+# def ...
 
 
 # %%
@@ -35,8 +32,7 @@ def ist_buchstabe(eingabe_von_nutzer: str) -> bool:
 # dabei soll die Groß/Kleinschreibung keine Rolle spielen (also "Ich geben auf"
 # und "ICH GEBE auf" usw. soll gleich als Aufgabe bewertet werden).
 
-def ist_aufgeben(eingabe_von_nutzer: str) -> bool:
-    return eingabe_von_nutzer.lower() == "ich gebe auf"
+# def ...
 
 
 # %%
@@ -89,16 +85,8 @@ def bewerte_geratenen_buchstaben(
     noch_gesuchte_buchstaben: Set[str],
     falsch_geratene_buchstaben: List[str]
     ) -> Optional[bool]:
-    if buchstabe in noch_gesuchte_buchstaben:
-        noch_gesuchte_buchstaben.remove(buchstabe)
-        if len(noch_gesuchte_buchstaben) == 0:
-            return "gewonnen"
-        else:
-            return "richtig-geraten"
-    else:
-        falsch_geratene_buchstaben.append(buchstabe)
-        if len(falsch_geratene_buchstaben) >= VERLOREN_BEI_SO_VIELEN_FEHLERN:
-            return "verloren"
-        else:
-            return "falsch-geraten"
+    pass
 
+
+# %%
+# So, das war es schon fast.  Morgen schaffen wir es.

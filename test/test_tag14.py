@@ -1,6 +1,4 @@
 from unittest import TestCase
-from unittest.mock import patch
-from io import StringIO
 from os.path import exists, abspath, dirname, join, pardir
 
 try:
@@ -47,3 +45,8 @@ class Tag14Tests(TestCase):
         self.assertEqual(heute.zu_ratendes_wort("heute", set("hte")), "__u__")
         self.assertEqual(heute.zu_ratendes_wort("heute", []), "heute",
                          msg="Wenn nichts mehr zu erraten ist, dann gib das Wort aus")
+        self.assertEqual(heute.zu_ratendes_wort("Heute", set("heute")), "_____",
+                         msg="Das Wort kann Groß- und Kleinbuchstaben enthalten, die zu erratenden Buchstaben sind alle klein.")
+        self.assertEqual(heute.zu_ratendes_wort("süß", set("üß")), "s__",
+                         msg="Das Wort kann Umlaute und ß enthalten")
+

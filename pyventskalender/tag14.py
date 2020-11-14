@@ -42,14 +42,15 @@ try:
 except ImportError:
     from galgenmannbilder import HANGMANPICS
 
+
+# %%
 # Schreibe jetzt eine Funktion `galgenmannbild`, die als Parameter die Anzahl
 # an Fehlern entgegennimmt und das Bild zurückliefert das der Anzahl an Fehlern
 # entspricht.
 # Du kannst sie testen per bspw. `print(galgenmannbild(3))`
 
 
-def galgenmannbild(anzahl_fehler: int) -> str:
-    return HANGMANPICS[anzahl_fehler]
+# def ...
 
 # %%
 # Wie viele Fehler darf man sich denn eigentlich erlauben, wenn man diese
@@ -57,7 +58,6 @@ def galgenmannbild(anzahl_fehler: int) -> str:
 # Definiere eine Variable `VERLOREN_BEI_SO_VIELEN_FEHLERN` mit dem richtigen
 # Wert.
 
-VERLOREN_BEI_SO_VIELEN_FEHLERN = len(HANGMANPICS) - 1
 
 
 # %%
@@ -69,11 +69,6 @@ VERLOREN_BEI_SO_VIELEN_FEHLERN = len(HANGMANPICS) - 1
 # Ist also `hallo` zu erraten und `h` und `l` müssen noch erraten werden, dann
 # soll die Ausgabe `_a__o` sein.
 
-def zu_ratendes_wort(gesuchtes_wort, fehlende_buchstaben):
-    anzuzeigendes_wort = gesuchtes_wort
-    for fehlender_buchstabe in fehlende_buchstaben:
-        anzuzeigendes_wort = anzuzeigendes_wort.replace(fehlender_buchstabe, "_")
-    return anzuzeigendes_wort
 
 
 # %%

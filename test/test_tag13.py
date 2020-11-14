@@ -1,6 +1,5 @@
 from unittest import TestCase
 from unittest.mock import patch
-from io import StringIO
 import re
 
 try:

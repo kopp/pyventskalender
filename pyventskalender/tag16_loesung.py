@@ -1,20 +1,13 @@
-# %%
-# Und heute bekommen wir das Galgenmannspiel endlich fertig.
-#
-# Zuerst importieren wir wieder, was wir bisher dafür gemacht haben:
+import base64
+from random import choice
 
 try:
     from pyventskalender.tag14_loesung import zu_ratendes_wort, galgenmannbild
     from pyventskalender.tag15_loesung import ist_aufgeben, ist_buchstabe, bewerte_geratenen_buchstaben
-# ... und falls man direkt in Visual Studio Code arbeitet nochmal ohne Pfad:
 except ImportError:
     from tag14_loesung import zu_ratendes_wort, galgenmannbild
     from tag15_loesung import ist_aufgeben, ist_buchstabe, bewerte_geratenen_buchstaben
 
-
-# %%
-# Und jetzt kommt das eigentliche Spiel.
-# Ergänze es an der markierten Stelle.
 
 def galgenmannspiel(gesuchtes_wort: str):
     gesuchtes_wort = gesuchtes_wort.strip()
@@ -23,16 +16,14 @@ def galgenmannspiel(gesuchtes_wort: str):
     while True:
         print("Gesucht: ", zu_ratendes_wort(gesuchtes_wort, noch_gesuchte_buchstaben))
         eingabe = input("Rate einen Buchstaben")
-        # 1. überprüfe die Eingabe
-        # 1a. Wenn der Spieler aufgeben will, dann soll
-        # ausgegeben werden "Ok. Das Wort wäre gewesen: ..." und das
-        # Spiel beendet werden.
-        # 1b. Wenn der Spieler nicht genau einen Buchstaben eingibt dann soll
-        # ausgegeben werden "Bitte genau einen Buchstaben angeben" und er soll
-        # einfach dierekt nach der nächsten Eingabe gefragt werden.
+        if ist_aufgeben(eingabe):
+            print("Ok. Das Wort wäre gewesen: {}".format(gesuchtes_wort))
+            return False
+        if not ist_buchstabe(eingabe):
+            print("Bitte genau einen Buchstaben angeben")
+            continue
         buchstabe = eingabe.strip().lower()
-        # 2. Bewerte jetzt die Eingabe korrekt.
-        bewertung = "verloren"
+        bewertung = bewerte_geratenen_buchstaben(buchstabe, noch_gesuchte_buchstaben, falsch_geratene_buchstaben)
         if bewertung == "richtig-geraten":
             print("Gut geraten!")
         elif bewertung == "falsch-geraten":
@@ -49,24 +40,13 @@ def galgenmannspiel(gesuchtes_wort: str):
             return False
 
 
-# %%
-# Hier sind ein paar Worte, mit denen du das Spiel gleich selbst spielen kannst.
-# Achtung: Hier sind auch Umlaute/ß im Spiel!
-# Damit man sie hier nicht gleich sieht, sind sie codiert, das geht übrigens so:
 
-import base64
 
 def codiere_wort(wort: str) -> bytes:
     return base64.b64encode(wort.encode("utf-8"))
 
 def decodiere_wort(codiertes_wort: bytes) -> str:
     return base64.b64decode(codiertes_wort).decode("utf-8")
-
-
-# Man kann jetzt einfach die Funktion
-# `spiele_galgenmann()` aufrufen und spielen.
-
-from random import choice
 
 
 CODIERTE_WORTE = [
@@ -125,6 +105,3 @@ def spiele_galgenmann():
     codiertes_wort = choice(CODIERTE_WORTE)
     wort = decodiere_wort(codiertes_wort)
     galgenmannspiel(wort)
-
-
-# %%
