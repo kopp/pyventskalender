@@ -102,10 +102,18 @@ def _lade_zusaetzliche_dateien_herunter(
                       ))
 
 
+def _lade_vorausgegangenen_tag_falls_notwendig(aktueller_tag: int):
+    if aktueller_tag > 1:
+        gestriger_tag = aktueller_tag - 1
+        datei_von_gestern = "pyventskalender/tag{:02d}.py".format(gestriger_tag)
+        if not exists(datei_von_gestern):
+            print(f"Die Dateien von gestern (Tag {gestriger_tag}) wurden nicht gefunden")
+            aktualisiere_problem_tag(gestriger_tag)
+
+
 def aktualisiere_problem_tag(tag: int) -> None:
+    _lade_vorausgegangenen_tag_falls_notwendig(tag)
     print("Aktualisiere auf Tag {}".format(tag))
-    # TODO: Nachschauen, ob tag-1 da ist und darauf reagieren!
-    # suche, was man runterladen muss
     datei_des_tages = "pyventskalender/tag{:02d}.py".format(tag)
     neue_dateien = [
             datei_des_tages,
