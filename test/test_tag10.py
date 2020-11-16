@@ -9,7 +9,7 @@ except ImportError:
 
 class Tag10Tests(TestCase):
 
-    def test_extrahiere_gewichte(self):
+    def test_10_extrahiere_gewichte(self):
         pseudo_file = mock_open(read_data="""
 1.11. Herrmann wiegt 72kg
 1.11. Caro wiegt 62kg
@@ -29,7 +29,7 @@ class Tag10Tests(TestCase):
             self.assertEqual(gewichte[1], ["Caro", "62"])
             self.assertEqual(gewichte[2], ["Paul", "32"])
 
-    def test_gewichte_als_zahlen(self):
+    def test_20_gewichte_als_zahlen(self):
         pseudo_data = [["x", "1"], ["y", "2"]]
         output = heute.gewichte_als_zahlen(pseudo_data)
         self.assertEqual(output[0][1], 1)

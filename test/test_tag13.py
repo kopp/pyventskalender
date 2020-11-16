@@ -40,7 +40,7 @@ class Tag13Tests(TestCase):
         groups = heute.EINZUSETZENDES_WORT_RE.findall(text)
         self.assertEqual(groups, expected_groups)
 
-    def test_einzusetzendes_wort_re(self):
+    def test_10_einzusetzendes_wort_re(self):
         for text in ["<x>", "a <x>", "<x> a", "<x> <y>", "a <x> <y>", "a <x> <y> b", "a <x> b <y> c"]:
             self.find_in_text(text)
         for text in ["a", "<b", "c>", ">a<"]:
@@ -71,7 +71,7 @@ class Tag13Tests(TestCase):
                               msg="Der erwartete Prompt ist nicht aufgetaucht")
             self.assertEqual(ergebnis, expected_result)
 
-    def test_mad_libs(self):
+    def test_20_mad_libs(self):
         self.mad_lib_durchlauf(
             "a",
             []

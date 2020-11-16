@@ -9,7 +9,7 @@ except ImportError:
 
 class Tag09Tests(TestCase):
 
-    def test_wie_viele_messungen_von(self):
+    def test_10_wie_viele_messungen_von(self):
         pseudo_file = mock_open(read_data="""
 1.11. Herrmann wiegt 72kg
 1.11. Caro wiegt 62kg
@@ -36,7 +36,7 @@ class Tag09Tests(TestCase):
                 heute.wie_viele_messungen_von("Romeo", "fake.txt"),
                 0)
 
-    def test_durchschnitt(self):
+    def test_20_durchschnitt(self):
         self.assertAlmostEqual(heute.durchschnitt([1]), 1)
         self.assertAlmostEqual(heute.durchschnitt([5] * 10), 5)
         self.assertAlmostEqual(heute.durchschnitt([1, 2, 3]), 2)
@@ -44,4 +44,3 @@ class Tag09Tests(TestCase):
             heute.durchschnitt(list(range(51))),
             25,
         )
-

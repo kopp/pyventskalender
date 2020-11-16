@@ -28,12 +28,12 @@ class Tag08Tests(TestCase):
         hoffentlich_saeugetiere = heute.saeugetiere_aus(tiere)
         self.assertEqual(hoffentlich_saeugetiere, saeugetiere)
 
-    def test_saeugetiere_aus(self):
+    def test_10_saeugetiere_aus(self):
         heute.BEKANNTE_SAEUGETIERE
         self._teste_tierset(["s0"])
         self._teste_tierset(["n0"])
 
-    def test_mensch_mag_tier(self):
+    def test_20_mensch_mag_tier(self):
         self.assertEqual(
             heute.mensch_mag_tier(
                 ["Peter", "Paul"], ["Schweine", "Katzen"]

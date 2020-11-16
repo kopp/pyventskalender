@@ -9,34 +9,34 @@ except ImportError:
 
 class Tag14Tests(TestCase):
 
-    def test_datei_ist_da(self):
+    def test_10_datei_ist_da(self):
         erwarteter_dateipfad = abspath(join(dirname(__file__), pardir, "pyventskalender", "galgenmannbilder.py"))
         self.assertTrue(exists(erwarteter_dateipfad))
 
-    def test_import_file(self):
+    def test_20_import_file(self):
         from pyventskalender import galgenmannbilder
 
-    def test_import_bilder(self):
+    def test_30_import_bilder(self):
         from pyventskalender.galgenmannbilder import HANGMANPICS
 
-    def test_galgenmannbild_exists(self):
+    def test_40_galgenmannbild_exists(self):
         self.assertIn('galgenmannbild', dir(heute))
 
-    def test_galgenmannbild(self):
+    def test_50_galgenmannbild(self):
         from pyventskalender.galgenmannbilder import HANGMANPICS
         for i in range(len(HANGMANPICS)):
             self.assertEqual(
                 heute.galgenmannbild(i), HANGMANPICS[i], 
                 msg="Bild für {} Fehler stimmt nicht".format(i))
 
-    def test_maximale_fehler_existiert(self):
+    def test_60_maximale_fehler_existiert(self):
         self.assertIn("VERLOREN_BEI_SO_VIELEN_FEHLERN", dir(heute))
 
-    def test_maximale_fehler_wert(self):
+    def test_70_maximale_fehler_wert(self):
         from pyventskalender.galgenmannbilder import HANGMANPICS
         self.assertEqual(heute.VERLOREN_BEI_SO_VIELEN_FEHLERN, len(HANGMANPICS) - 1)
 
-    def test_zu_ratendes_wort(self):
+    def test_80_zu_ratendes_wort(self):
         self.assertEqual(heute.zu_ratendes_wort("heute", set("heute")), "_____",
                          msg="Wenn noch alles erraten werden soll, muss _____ rauskommen")
         self.assertEqual(heute.zu_ratendes_wort("heute", set("h")), "_eute")

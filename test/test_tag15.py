@@ -9,11 +9,11 @@ except ImportError:
 
 class Tag15Tests(TestCase):
 
-    def test_ist_buchstabe_vorhanden(self):
+    def test_10_ist_buchstabe_vorhanden(self):
         self.assertIn("ist_buchstabe", dir(heute),
                       msg="ist_buchstabe ist noch nicht definiert (oder falsch geschrieben)")
 
-    def test_ist_buchstabe_annotations(self):
+    def test_20_ist_buchstabe_annotations(self):
         self.assertEqual(len(heute.ist_buchstabe.__annotations__), 2,
                          msg="Bitte annotiere den Typ des Arguments und des Rückgabewerts.")
         self.assertEqual(
@@ -22,23 +22,23 @@ class Tag15Tests(TestCase):
             msg="Die Typen sollten str für den Input und bool für den Rückgabewert sein."
         )
 
-    def test_ist_buchstabe(self):
+    def test_30_ist_buchstabe(self):
         for buchstabe in ["a", "A", "1", " ", "ä", "Ä", "ß"]:
             self.assertTrue(heute.ist_buchstabe(buchstabe))
         for eingabe in ["aa", "a ", "AA", "aaaa", ""]:
             self.assertFalse(heute.ist_buchstabe(eingabe))
 
-    def test_ist_aufgeben_vorhanden(self):
+    def test_40_ist_aufgeben_vorhanden(self):
         self.assertIn("ist_aufgeben", dir(heute),
                       msg="ist_aufgeben ist noch nicht definiert (oder falsch geschrieben)")
 
-    def test_ist_aufgeben(self):
+    def test_50_ist_aufgeben(self):
         for aufgabe in ["ich gebe auf", "Ich Gebe Auf", "ICH GEBE AUF"]:
             self.assertTrue(heute.ist_aufgeben(aufgabe))
         for falsche_aufgabe in ["Ich gebe auf.", "Aufgabe", "asdf"]:
             self.assertFalse(heute.ist_aufgeben(falsche_aufgabe))
 
-    def test_bewerte_geratenen_buchstaben(self):
+    def test_60_bewerte_geratenen_buchstaben(self):
         noch_gesucht = set("ab")
         falsch_geraten = []
 
@@ -67,7 +67,7 @@ class Tag15Tests(TestCase):
         self.assertEqual(noch_gesucht, set())
         self.assertEqual(falsch_geraten, ["x", "y", "y"])
 
-    def test_bewerte_geratenen_buchstaben_verloren(self):
+    def test_70_bewerte_geratenen_buchstaben_verloren(self):
         noch_gesucht = set("ab")
         falsch_geraten = []
 

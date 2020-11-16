@@ -30,7 +30,7 @@ EXPECTED_RE = re.compile(r"(<.*?>)")
 
 class Tag16Tests(TestCase):
 
-    def test_aufgeben(self):
+    def test_10_aufgeben(self):
 
         replies = ["ich gebe auf"]
         prompts = []
@@ -44,7 +44,7 @@ class Tag16Tests(TestCase):
                 self.assertIn("Ok. Das Wort wäre gewesen:", ausgegebener_text)
                 self.assertIn(wort, ausgegebener_text)
 
-    def test_genau_einen_buchstaben(self):
+    def test_20_genau_einen_buchstaben(self):
 
         replies = ["xxx", "x"]
         prompts = []
@@ -63,7 +63,7 @@ class Tag16Tests(TestCase):
                 self.assertIn("Bitte genau einen Buchstaben angeben", ausgegebener_text)
                 self.assertNotIn(wort, ausgegebener_text)
 
-    def test_galgenmannspiel_gewonnen(self):
+    def test_30_galgenmannspiel_gewonnen(self):
         wort = "AAbbAaBb"
         replies = ["a", "x", "y", "b"]
         prompts = []
@@ -80,7 +80,7 @@ class Tag16Tests(TestCase):
                 self.assertIn(wort, ausgegebener_text)
                 self.assertIn("Erraten", ausgegebener_text)
 
-    def test_galgenmannspiel_verloren(self):
+    def test_40_galgenmannspiel_verloren(self):
         wort = "AAbbAaBb"
         replies = 100 * ["x"]
         prompts = []

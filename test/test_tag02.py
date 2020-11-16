@@ -7,25 +7,25 @@ except ImportError:
 
 class Tag02Tests(TestCase):
 
-    def test_anzahl_mooos(self):
+    def test_10_anzahl_mooos(self):
         expected = "Mööö Mööö "
         self.assertEqual(heute.elchgeraeusch(2), expected)
 
-    def test_anzahl_miaus(self):
+    def test_20_anzahl_miaus(self):
         expected = "Miau Miau "
         self.assertEqual(heute.katzengeraeusch(2), expected)
 
-    def test_addiere(self):
+    def test_30_addiere(self):
         self.assertEqual(heute.addiere(2, 5), 2 * "Mööö " + 5 * "Miau ")
         self.assertEqual(heute.addiere(3, 1), 3 * "Mööö " + 1 * "Miau ")
         self.assertEqual(heute.addiere(1, 0), "Mööö ")
         self.assertEqual(heute.addiere(0, 1), "Miau ")
 
-    def test_zaehle_tierlaute(self):
+    def test_40_zaehle_tierlaute(self):
         self.assertEqual(heute.zaehle_tierlaute("Mööö Miau Mööö Miau "), 4)
         self.assertEqual(heute.zaehle_tierlaute(""), 0)
 
-    def test_subtrahiere_elchrufe_von_katzenrufen(self):
+    def test_50_subtrahiere_elchrufe_von_katzenrufen(self):
         self.assertEqual(heute.subtrahiere_elchrufe_von_katzenrufen(
             "Mööö Mööö Mööö ", "Miau Miau "), "Mööö ")
         self.assertEqual(heute.subtrahiere_elchrufe_von_katzenrufen(

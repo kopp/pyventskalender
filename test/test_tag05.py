@@ -22,7 +22,7 @@ def make_ich_tippe_auf(fake_zufallszahl: int):
 
 class Tag05Tests(TestCase):
 
-    def test_finde_zufallszahl(self):
+    def test_10_finde_zufallszahl(self):
         for fake_zufallszahl in [10] + list(range(20)):
             with patch(
                 ICH_TIPPE_AUF_PATH,

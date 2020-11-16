@@ -9,7 +9,7 @@ except ImportError:
 
 class Tag11Tests(TestCase):
 
-    def test_adressbuch(self):
+    def test_10_adressbuch(self):
         self.assertIn("Wolfgang", heute.adressbuch)
         self.assertEqual(type(heute.adressbuch["Wolfgang"]), list)
         self.assertEqual(
@@ -17,7 +17,7 @@ class Tag11Tests(TestCase):
             ["0176 84927413", "07421 39495"],
         )
 
-    def test_extrahiere_gewichte(self):
+    def test_20_extrahiere_gewichte(self):
         pseudo_file = mock_open(read_data="""
 1.11. Herrmann wiegt 72kg
 1.11. Caro wiegt 62kg

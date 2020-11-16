@@ -22,12 +22,12 @@ def make_fake_input(replies, prompts):
 
 class Tag06Tests(TestCase):
 
-    def test_leere_liste_ist_da(self):
+    def test_10_leere_liste_ist_da(self):
         self.assertTrue("unverstanden" in dir(heute),
                         msg="Ich konnte kein 'unverstanden' finden.")
         self.assertIs(type(heute.unverstanden), list)
 
-    def test_frage_nach_lieblingstieren_einfach(self):
+    def test_20_frage_nach_lieblingstieren_einfach(self):
         prompts = []
         replies = ["A", "B", "C"]
         expected_replies = replies.copy()
@@ -41,7 +41,7 @@ class Tag06Tests(TestCase):
                 self.assertEqual(fake_out.getvalue(), "")
                 self.assertEqual(reply, expected_replies)
 
-    def test_frage_nach_lieblingstieren_mehrere_antworten(self):
+    def test_30_frage_nach_lieblingstieren_mehrere_antworten(self):
         prompts = []
         replies = ["A", "B", "A", "C"]
         expected_replies = ["A", "B", "C"]
@@ -55,7 +55,7 @@ class Tag06Tests(TestCase):
                 self.assertEqual(fake_out.getvalue(), "A hattest du schon gesagt.\n")
                 self.assertEqual(reply, expected_replies)
 
-    def test_platz_auf_siegertreppchen(self):
+    def test_40_platz_auf_siegertreppchen(self):
         self.assertEqual(heute.platz_auf_siegertreppchen(["A", "B", "C"], "B"), 2)
         self.assertEqual(heute.platz_auf_siegertreppchen(["A", "B", "C"], "A"), 1)
         self.assertEqual(heute.platz_auf_siegertreppchen(["A", "B", "C"], "C"), 3)

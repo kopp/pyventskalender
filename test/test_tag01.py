@@ -5,7 +5,7 @@ from unittest.mock import patch
 
 class Tag01Tests(TestCase):
 
-    def test_standard_output(self):
+    def test_10_standard_output(self):
         with patch('sys.stdout', new=StringIO()) as fake_out:
             try:
                 # Wenn die Loesungen da sind, importiere diese, damit man auch
