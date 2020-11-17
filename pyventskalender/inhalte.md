@@ -15,6 +15,7 @@
 - Tag13: Mad Libs
 - Tag14..Tag16: Galgenmann, set
 - Tag17: Eigene Typen
+- Tag18..Tag19: Satzwerkstatt; Übung für Typen/Objekte
 
 
 - keyword arguments, default values
