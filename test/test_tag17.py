@@ -1,9 +1,8 @@
-from pyventskalender.tag17 import Katze
 from unittest import TestCase
 from unittest.mock import patch, call
 
 try:
-    from pyventskalender import tag17_loesungX as heute
+    from pyventskalender import tag17_loesung as heute
 except ImportError:
     from pyventskalender import tag17 as heute
 
