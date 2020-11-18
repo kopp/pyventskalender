@@ -3,6 +3,8 @@ try:
 except ImportError:
     from tag18 import MOEGLICHE_OBJEKTE, MOEGLICHE_SUBJEKTE, MOEGLICHE_VERBEN, MOEGLICHE_ADVERBIALE
 
+from random import choice
+
 
 class Satzglied:
     def __init__(self, moeglichkeiten):
