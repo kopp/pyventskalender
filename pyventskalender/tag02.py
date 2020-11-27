@@ -1,3 +1,6 @@
+# Funktionen fassen Befehle zusammen
+
+# %%
 # Eine Funktion ist eine kurze Liste von Befehlen.
 # Die Funktion hat einen Namen, damit kann man sie aufrufen.
 # Ist der Name gut gewählt, kann man auch verstehen, was die Funktion
@@ -39,8 +42,13 @@ addiere_zahlen(drei, 1)  # ergibt 4, aber das speichern wir nirgends
 #    addiere_zahlen(23, 7)
 # eintippt und dann Shift+Enter drückt.
 #
-# Wichtiger Tip: Per Tab kann man sich seine Eingaben vervollständigen lassen.
-# Es reicht also bspw. `addie` zu tippen und dann Tab zu drücken.
+# Wichtiger Tip:
+# Visual Studio Code kann die Eingaben vervollständigen.
+# Es reicht also bspw. `addie` zu tippen, dann sollten Vorschläge angezeigt
+# werden, die man mit den Pfeiltasten auswählen und dann per Enter bestätigen
+# kann.
+# Sollte man keine Vorschlag sehen, möchte aber gerne einen haben, kann man das
+# mit Strg+Leertaste "erzwingen".
 
 # %%
 # Funktionen können in anderen Funktionen aufgerufen werden:

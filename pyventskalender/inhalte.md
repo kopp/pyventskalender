@@ -16,6 +16,5 @@
 - Tag14..Tag16: Galgenmann, set
 - Tag17: Eigene Typen
 - Tag18..Tag19: Satzwerkstatt; Übung für Typen/Objekte
-
-
-- keyword arguments, default values
+- Tag20: venv/pip
+- Tag21..Tag24: arcade Spiel

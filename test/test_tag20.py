@@ -6,7 +6,7 @@ PROJEKT_ORDNER = abspath(join(dirname(__file__), pardir))
 VENV_ORDNER = join(PROJEKT_ORDNER, "venv")
 
 try:
-    from pyventskalender import tag20_loesungX as heute
+    from pyventskalender import tag20_loesung as heute
 
     class Tag20Tests(TestCase):
         pass
