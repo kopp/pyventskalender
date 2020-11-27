@@ -1,12 +1,5 @@
-# Weiter geht es mit dem Spiel...
-#
-# Setzt Datei pyventskalender/finde_schnellsten_weg.py voraus.
-
-# %%
-# Gestern hatten wir ungefähr so aufgehört:
-
 import arcade
-from random import randint
+from random import randint, random
 
 class FindeDenSchnellstenWeg(arcade.Window):
     """
@@ -26,6 +19,7 @@ class FindeDenSchnellstenWeg(arcade.Window):
 
         self.geschafft = False
         self.verloren = False
+        self.zurueckgelegter_weg = 0
 
         self.hindernisse = []
         for _ in range(15):
@@ -47,8 +41,17 @@ class FindeDenSchnellstenWeg(arcade.Window):
         self.spieler.draw()
         if self.geschafft:
             arcade.draw_text("Geschafft", self.breite // 3, self.hoehe // 2, arcade.color.RED, 50)
+            arcade.draw_text("Zurückgelegter Weg: {}".format(self.zurueckgelegter_weg),
+                             self.breite // 3, self.hoehe // 3, arcade.color.BLACK, 30)
         if self.verloren:
             arcade.draw_text("Verloren :(", self.breite // 3, self.hoehe // 2, arcade.color.RED, 50)
+
+    def _weg_aufaddieren(self, position_alt, position_neu):
+        # Verwende Manhattan-Distanz -- der Spieler kann nur nach
+        # rechts/links/oben/unten, nicht schräg.
+        delta_x = abs(position_alt[0] - position_neu[0])
+        delta_y = abs(position_alt[1] - position_neu[1])
+        self.zurueckgelegter_weg += delta_x + delta_y
 
     def on_update(self, delta_time):
         """
@@ -58,19 +61,32 @@ class FindeDenSchnellstenWeg(arcade.Window):
         Position basierend auf ihrer letzten Position und den Eigenschaften
         `change_x`, `change_y` und `change_angle` aktualisiert.
         """
+        position_alt = self.spieler.position
         self.spieler.update()
+        position_neu = self.spieler.position
+        self._weg_aufaddieren(position_alt, position_neu)
+
         self.geschafft = arcade.check_for_collision(self.spieler, self.ziel)
+
         for hindernis in self.hindernisse:
             if arcade.check_for_collision(self.spieler, hindernis):
                 self.verloren = True
+            hindernis.update()
+
         if self.geschafft or self.verloren:
             self.spieler.stop()
+            for hindernis in self.hindernisse:
+                hindernis.stop()
 
     def nahe_hindernisse_entfernen(self):
         for hindernis in self.hindernisse:
             abstand = arcade.get_distance_between_sprites(self.spieler, hindernis)
             if abstand < 240:
                 self.hindernisse.remove(hindernis)
+            else:
+                hindernis.change_angle += 0.1 * random()
+                hindernis.change_x += 2 * random()
+                hindernis.change_y += 2 * random()
 
     def on_key_press(self, key, modifiers):
         """
@@ -103,7 +119,7 @@ def spiele_spiel():
 if __name__ == "__main__":
     spiele_spiel()
 
-# %% Hindernisse plazieren -- Tests 10 20 30
+# %%
 # Jetzt wollen wir es dem Spieler noch ein klein wenig schwerer machen, sein
 # Ziel zu erreichen.
 # Dafür platzieren wir eine Menge von Hindernissen.
@@ -116,13 +132,13 @@ if __name__ == "__main__":
 # Um eine Zufallszahl zwischen a und b zu bekommen, verwende `random.randint(a, b)`.
 # Hinweis: Der `spieler` kann auch außerhalb des sichtbaren Spielfelds laufen.
 
-# %% Verloren -- Test 40
+# %%
 # Wenn der `spieler` ein Hindernis aus `hindernisse` berührt, hat er verloren.
 # Prüfe also, ob er eines berührt und wenn ja setze `verloren` auf True
 # (initial soll das auf False sein), halte den Spieler an und schreibe in
 # `on_draw` den Text "Verloren :(" aus.
 
-# %% Freiräumen -- Test 50
+# %%
 # Und weil heute Weihnachten ist, hier noch ein kleines Geschenk:
 # Füge die folgende Methode in die Klasse ein und rufe sie auf, wenn die
 # Leertaste gedrückt wird.
@@ -134,8 +150,3 @@ def nahe_hindernisse_entfernen(self):
         abstand = arcade.get_distance_between_sprites(self.spieler, hindernis)
         if abstand < 240:
             self.hindernisse.remove(hindernis)
-
-# %%
-# Und vielleicht möchtest du auch direkt das Spiel in
-# `finde_schnellsten_weg.py` spielen -- da gibt es noch eine kleine
-# Überraschung...

@@ -1,6 +1,6 @@
 # Heute beginnen wir mit eineme eigenen einfachen Spiel.
 
-# %%
+# %% installiere arcade in venv -- Tests 10 20 30
 # Die Library 'arcade' (siehe https://arcade.academy/) hilft, einfache Spiele
 # in Python zu entwerfen.
 # Installiere sie in dem Virtual Environment `venv`, das wir gestern schon
@@ -82,7 +82,7 @@ def spiele_spiel():
 if __name__ == "__main__":
     spiele_spiel()
 
-## %%
+## %% Lege spieler an -- Test 40
 # Füge jetzt einen Spieler ein.
 # Dazu erstellst du in `__init__` ein Member `spieler`, das ein
 # `arcade.Sprite`-Objekt sein soll.
@@ -92,12 +92,12 @@ if __name__ == "__main__":
 # (Hinweis: Um das Bild anzugeben verwendet man dann einen kompletten "Pfad",
 # der mit :resources: beginn, also bspw. ":resources:images/enemies/frog.png")
 
-# %%
+# %% Zeichne spieler -- Test 50
 # Startet man das Spiel, dann sieht man ihn bisher noch nicht.
 # Dazu musst du ihn in `on_draw` aufnehmen -- siehe die Beschreibung dort.
 # Jetzt müsstest du im linken unteren Eck deine Figur ein klein wenig sehen.
 
-# %%
+# %% Startposition -- Test 60
 # Die Positionen in dem Fenster werden mit zwei Zahlen angegeben.
 # Die Höhe und Breite davon geben wir im Konstruktor an (also 1000 breit und
 # 800 hoch), die linke untere Ecke hat die Koordinaten 0, 0 -- dort startet
