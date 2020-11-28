@@ -51,7 +51,7 @@ eingibt.
 ## Den PyVentskalender selbst "installieren"
 
 Es reicht, die Datei
-[`gib_mir_die_heutige_aufgabe.py`](gib_mir_die_heutige_aufgabe.py)
+[`gib_mir_die_heutige_aufgabe.py`](https://raw.githubusercontent.com/kopp/pyventskalender/master/gib_mir_die_heutige_aufgabe.py)
 in einen bisher leeren Ordner zu legen, dann kann man direkt loslegen.
 Wenn die Datei ausgeführt wird, lädt sie automatisch alles weitere herunter.
 
