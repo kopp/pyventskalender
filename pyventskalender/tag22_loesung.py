@@ -1,8 +1,3 @@
-# Weiter geht es mit dem Spiel...
-
-# %%
-# Gestern hatten wir ungefähr so aufgehört:
-
 import arcade
 
 class FindeDenSchnellstenWeg(arcade.Window):
@@ -70,27 +65,3 @@ def spiele_spiel():
 
 if __name__ == "__main__":
     spiele_spiel()
-
-
-
-# %% Geschafft wenn am Ziel -- Test 10
-# Wenn wir ins Ziel kommen, wollen wir das auch merken.
-# Dazu wollen wir wissen, wann unser `spieler` das `ziel` berührt.
-# Dazu gibt es die Funktion `arcade.check_for_collision`.
-# Schreibe die Funktion aus und halte die Maus daüber, dann müsste dir eine
-# Hilfe angezeigt werden, mit der du arbeiten kannst.
-# Du solltest den Member `geschafft` initial auf False setzen und auf True wenn
-# das Ziel erreicht ist.
-# Das prüfst du am besten in `on_update` -- hier bewegt sich der `spieler`.
-
-# %% Geschafft ausgeben -- Test 20
-# Wenn der Spieler es geschafft hat, dann soll er das auch sehen.
-# Schreibe deshalb in der `on_draw`-Methode den Text "Geschafft", sobald der
-# `spieler` das `ziel` erreicht hat.
-# Dabei hilft dir `arcade.draw_text`.
-
-# %% Anhalten wenn geschafft -- Test 30
-# Dir ist sicher schon aufgefallen, dass der `spieler` noch weiter läuft, auch
-# wenn das Spiel schon beendet ist.
-# Verwende seine `stop`-Methode, wenn er das Ziel erreicht hat, damit er sich
-# nicht weiter bewegt.

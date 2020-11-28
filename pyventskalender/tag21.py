@@ -41,9 +41,6 @@ class FindeDenSchnellstenWeg(arcade.Window):
         self.breite = breite
         self.hoehe = hoehe
 
-        self.spieler = arcade.Sprite(":resources:images/enemies/frog.png")
-        self.spieler.position = 50, 50
-
         arcade.set_background_color(arcade.color.AMAZON)
 
     def on_draw(self):
@@ -52,7 +49,6 @@ class FindeDenSchnellstenWeg(arcade.Window):
         Dazu wird für die einzelnen Objekte die `draw()`-Methode aufgerufen.
         """
         arcade.start_render()  # muss zuallererst aufgerufen werden
-        self.spieler.draw()
 
     def on_update(self, delta_time):
         """

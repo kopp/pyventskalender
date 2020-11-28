@@ -1,8 +1,3 @@
-# Weiter geht es mit dem Spiel...
-
-# %%
-# Gestern hatten wir ungefähr so aufgehört:
-
 import arcade
 
 class FindeDenSchnellstenWeg(arcade.Window):
@@ -55,24 +50,3 @@ def spiele_spiel():
 
 if __name__ == "__main__":
     spiele_spiel()
-
-# %% Spieler bewegen -- Tests 10 20
-# Jetzt wollen wir die Figur laufen lassen, indem wir die Pfeile auf der
-# Tastatur drücken.
-# Sorge dafür, dass wenn man den Pfeil nach rechts/links/oben/unten drückt,
-# unser Spieler `change_x` und `change_y` entsprechend gesetzt bekommt:
-# Drückt man nach links, soll er sich nur um 5 nach links bewegen und nicht
-# nach oben/unten.
-# Hinweis: Vergiss nicht, den Spieler in `on_update` aufzunehmen!
-
-
-# %% Ziel -- Tests 30 40
-# Schließlich wollen wir noch ein Ziel setzen, zu dem unser Spieler laufen
-# soll.
-# Erstelle dafür ein weiteres Sprite, `ziel`, das du nach rechts oben setzt --
-# seine Position soll 90% der Breite und 90% der Höhe des Fensters sein.
-
-# %% Übereinander zeichnen -- test 50
-# Schaffst du es, mit der Figur bis zum Ziel zu laufen?
-# Wenn du hinter dem Ziel "verschwindest", schaffst du es, dass du stattdessen
-# über dem Ziel bist?

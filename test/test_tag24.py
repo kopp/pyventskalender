@@ -1,7 +1,13 @@
 from unittest import TestCase
 from unittest.mock import MagicMock, patch
 
-from pyventskalender import tag24 as heute
+try:
+    from pyventskalender import tag24_loesung as heute
+    MODULE_NAME = "pyventskalender.tag24_loesung"
+except ImportError:
+    from pyventskalender import tag24 as heute
+    MODULE_NAME = "pyventskalender.tag24"
+
 import pyventskalender
 
 try:
@@ -27,11 +33,13 @@ class Tag24Tests(TestCase):
 
     def test_20_hindernisse_positionen(self):
         if "randint" in dir(heute):
-            to_patch = "pyventskalender.tag24.randint"
+            to_patch = MODULE_NAME + ".randint"
         else:
             to_patch = "random.randint"
         with patch(to_patch):
-            if to_patch.startswith("pyventskalender"):
+            if to_patch.startswith("pyventskalender.tag24_loesung"):
+                mock = pyventskalender.tag24_loesung.randint
+            elif to_patch.startswith("pyventskalender.tag24"):
                 mock = pyventskalender.tag24.randint
             else:
                 mock = random.randint

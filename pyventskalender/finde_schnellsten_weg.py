@@ -99,16 +99,16 @@ class FindeDenSchnellstenWeg(arcade.Window):
         if key == arcade.key.LEFT:
             self.spieler.change_x = -5
             self.spieler.change_y = 0
-        if key == arcade.key.RIGHT:
+        elif key == arcade.key.RIGHT:
             self.spieler.change_x = 5
             self.spieler.change_y = 0
-        if key == arcade.key.UP:
+        elif key == arcade.key.UP:
             self.spieler.change_x = 0
             self.spieler.change_y = 5
-        if key == arcade.key.DOWN:
+        elif key == arcade.key.DOWN:
             self.spieler.change_x = 0
             self.spieler.change_y = -5
-        if key == arcade.key.SPACE:
+        elif key == arcade.key.SPACE:
             self.nahe_hindernisse_entfernen()
 
 

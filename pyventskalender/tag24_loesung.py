@@ -25,6 +25,13 @@ class FindeDenSchnellstenWeg(arcade.Window):
         self.ziel.position = 0.9 * self.breite, 0.9 * self.hoehe
 
         self.geschafft = False
+        self.verloren = False
+
+        self.hindernisse = []
+        for _ in range(15):
+            hindernis = arcade.Sprite(":resources:images/tiles/boxCrate_double.png")
+            hindernis.position = randint(100, self.breite), randint(100, self.hoehe)
+            self.hindernisse.append(hindernis)
 
         arcade.set_background_color(arcade.color.AMAZON)
 
@@ -34,10 +41,14 @@ class FindeDenSchnellstenWeg(arcade.Window):
         Dazu wird für die einzelnen Objekte die `draw()`-Methode aufgerufen.
         """
         arcade.start_render()  # muss zuallererst aufgerufen werden
+        for hindernis in self.hindernisse:
+            hindernis.draw()
         self.ziel.draw()
         self.spieler.draw()
         if self.geschafft:
             arcade.draw_text("Geschafft", self.breite // 3, self.hoehe // 2, arcade.color.RED, 50)
+        if self.verloren:
+            arcade.draw_text("Verloren :(", self.breite // 3, self.hoehe // 2, arcade.color.RED, 50)
 
     def on_update(self, delta_time):
         """
@@ -49,8 +60,17 @@ class FindeDenSchnellstenWeg(arcade.Window):
         """
         self.spieler.update()
         self.geschafft = arcade.check_for_collision(self.spieler, self.ziel)
-        if self.geschafft:
+        for hindernis in self.hindernisse:
+            if arcade.check_for_collision(self.spieler, hindernis):
+                self.verloren = True
+        if self.geschafft or self.verloren:
             self.spieler.stop()
+
+    def nahe_hindernisse_entfernen(self):
+        for hindernis in self.hindernisse:
+            abstand = arcade.get_distance_between_sprites(self.spieler, hindernis)
+            if abstand < 240:
+                self.hindernisse.remove(hindernis)
 
     def on_key_press(self, key, modifiers):
         """
@@ -63,15 +83,17 @@ class FindeDenSchnellstenWeg(arcade.Window):
         if key == arcade.key.LEFT:
             self.spieler.change_x = -5
             self.spieler.change_y = 0
-        elif key == arcade.key.RIGHT:
+        if key == arcade.key.RIGHT:
             self.spieler.change_x = 5
             self.spieler.change_y = 0
-        elif key == arcade.key.UP:
+        if key == arcade.key.UP:
             self.spieler.change_x = 0
             self.spieler.change_y = 5
-        elif key == arcade.key.DOWN:
+        if key == arcade.key.DOWN:
             self.spieler.change_x = 0
             self.spieler.change_y = -5
+        if key == arcade.key.SPACE:
+            self.nahe_hindernisse_entfernen()
 
 
 def spiele_spiel():
@@ -117,9 +139,3 @@ def nahe_hindernisse_entfernen(self):
 # Und vielleicht möchtest du auch direkt das Spiel in
 # `finde_schnellsten_weg.py` spielen -- da gibt es noch eine kleine
 # Überraschung...
-
-# %%
-# Hinweis: Die Lösungen für Tag 24 werden nicht automatisch an Tag 25
-# heruntergeladen, weil es keine Aufgaben mehr für Tag 25 gibt.
-# Schau dir `gib_mir_die_heutige_aufgabe.py` an, wie die Lösungen sonst
-# heruntergeladen werden und hole dir die für Tag 24 bei Interesse :)
