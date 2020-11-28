@@ -40,14 +40,14 @@ adressbuch["Paul"] = "07321 37294"
 # man mit `in`:
 "Paul" in adressbuch
 
-# %%
+# %% Adressbuch erweitern -- Test 10
 # Die Werte in einem Dictionary können auch selbst komplexere Objekte sein, wie
 # bspw. eine Liste.
 # Füge für "Wolfgang" eine Liste mit den Nummern "0176 84927413" und "07421
 # 39495" hinzu.
 
 
-# %%
+# %% Extrahieren und in Dict speichern -- Test 20
 # Genug mit Vorgeplänkel, jetzt zur eigentlichen Aufgabe.
 # Vervollständige die folgende Funktion, sodass sie eine Datei mit dem gleichen
 # Format wie `beispieldaten_gewichte.txt` einließt und als Ergebnis ein Dict

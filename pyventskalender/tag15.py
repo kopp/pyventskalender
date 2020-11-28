@@ -13,7 +13,7 @@ try:
 except ImportError:
     from tag14_loesung import VERLOREN_BEI_SO_VIELEN_FEHLERN
 
-# %%
+# %% Prüfe Eingabe -- Tests 10 20 30
 # Heute geht es damit weiter, dass wenn wir einen Nutzer nach einem geratenen
 # Buchstaben fragen, wir nicht unbedingt auch bekommen, was wir wollen.
 # Statt nur einen Buchstaben zu erraten, könnte er auch `"hallodu"` eingeben.
@@ -25,7 +25,7 @@ except ImportError:
 # def ...
 
 
-# %%
+# %% Prüfe ob Spieler aufgibt -- Tests 40 50
 # Außerdem wollen wir dem Spieler die Möglichkeit geben, aufzugeben.
 # Schreibe deshalb eine Funktion `ist_aufgeben`, die wieder eine Nutzereingabe
 # bekommt und sagt, ob es sich dabei um den Text `"ich gebe auf"` handelt --
@@ -63,7 +63,7 @@ was_ich_kann.add("Python")
 was_ich_kann.remove("Laufen")
 
 
-# %%
+# %% Bewerte Eingabe -- Tests 60 70
 # Das können wir gleich verwenden.
 # Vervollständige die folgende Funktion, die einen neuen geratenen Buchstaben
 # entgegennimmt.

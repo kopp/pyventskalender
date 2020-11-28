@@ -35,7 +35,3 @@ except ImportError:
                 import_funtioniert = False
             self.assertTrue(import_funtioniert,
                             msg="Es war nicht möglich, cat_fact zu importieren.  Hast du es installiert?")
-
-
-            
-

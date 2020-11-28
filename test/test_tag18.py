@@ -12,7 +12,13 @@ class Tag18Tests(TestCase):
         frischer_satz = heute.Satz()
         for satzteil in ["adverbiale", "verb", "subjekt", "objekt"]:
             self.assertIn(satzteil, dir(frischer_satz),
-            msg=f"Satz hat noch keinen Member {satzteil}")
+                          msg=f"Satz hat noch keinen Member {satzteil}")
+        self.assertEqual(type(frischer_satz.adverbiale), heute.Satzglied,
+                         msg="Die adverbiale sollte ein Satzglied sein, kein {}".format(
+                             type(frischer_satz.adverbiale)))
+        self.assertEqual(type(frischer_satz.verb), heute.Satzglied)
+        self.assertEqual(type(frischer_satz.subjekt), heute.Satzglied)
+        self.assertEqual(type(frischer_satz.objekt), heute.Satzglied)
 
     def test_20_moeglichkeiten_in_satzglied(self):
         moeglichkeiten = ["a", "b"]

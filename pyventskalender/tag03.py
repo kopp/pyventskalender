@@ -40,7 +40,7 @@ def sprich_ueber_haustiere(name_deiner_mutter: str, anzahl_katzen: int) -> str:
 # Allgemein ist eine Methode etwas, das man mit der `.`-Notation auf ein Objekt
 # anwenden kann -- also `objekt.methodenname(parameter)`.
 
-# %%
+# %% Ich mag <Tiere> -- Test 10
 # Jetzt kommt die (erste) Herausforderung:
 # Schreibe eine Funktion, die als Argument einen String (Tierart im Plural)
 # entgegennimmt und als Ausgabe den Text "Ich mag <TIERNAME>" ausgibt.
@@ -53,7 +53,7 @@ def sprich_ueber_haustiere(name_deiner_mutter: str, anzahl_katzen: int) -> str:
 def ich_mag():
     pass
 
-# %%
+# %% Ich will <N> <Tiere> -- Test 20
 # Wenn das geschafft ist, wollen wir noch Zahlen dazu nehmen.
 # In der folgenden Funktion soll man zwei verschiedene Tierarten und die
 # jeweilige Anzahl angeben können, bspw.
@@ -64,7 +64,7 @@ def ich_mag():
 def ich_will():
     pass
 
-# %%
+# %% Rechnen -- Test 30
 # Und als letzte Aufgabe heute wollen wir noch etwas rechnen.
 # Die Folgende Funktion soll berechnen, wie viel Futter eine bestimmte Anzahl
 # von Hamstern und Fischen am Tag isst.

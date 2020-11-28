@@ -12,7 +12,7 @@ except ImportError:
     from tag15_loesung import ist_aufgeben, ist_buchstabe, bewerte_geratenen_buchstaben
 
 
-# %%
+# %% Spiel vervollständigen -- Tests siehe unten
 # Und jetzt kommt das eigentliche Spiel.
 # Ergänze es an der markierten Stelle.
 
@@ -23,7 +23,7 @@ def galgenmannspiel(gesuchtes_wort: str):
     while True:
         print("Gesucht: ", zu_ratendes_wort(gesuchtes_wort, noch_gesuchte_buchstaben))
         eingabe = input("Rate einen Buchstaben")
-        # 1. überprüfe die Eingabe
+        # 1. überprüfe die Eingabe -- Tests 10 20
         # 1a. Wenn der Spieler aufgeben will, dann soll
         # ausgegeben werden "Ok. Das Wort wäre gewesen: ..." und das
         # Spiel beendet werden.
@@ -31,7 +31,7 @@ def galgenmannspiel(gesuchtes_wort: str):
         # ausgegeben werden "Bitte genau einen Buchstaben angeben" und er soll
         # einfach dierekt nach der nächsten Eingabe gefragt werden.
         buchstabe = eingabe.strip().lower()
-        # 2. Bewerte jetzt die Eingabe korrekt.
+        # 2. Bewerte jetzt die Eingabe korrekt. -- Tests 30 40
         bewertung = "verloren"
         if bewertung == "richtig-geraten":
             print("Gut geraten!")

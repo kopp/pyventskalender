@@ -47,10 +47,10 @@ meine_liebsten_tiere.remove("Ente")
 
 stuff = [1, "zwo", 3, "und", ["eine", "Liste in der", "Liste"]]
 
-# %%
+# %% Liste anlegen -- Test 10
 # Erstelle jetzt bitte eine Leere Liste mit Namen `unverstanden`
 
-# %%
+# %% Lieblingstiere erfragen -- Tests 20 30
 # Vervollständige jetzt die folgende Funktion.
 # Sie soll den Nutzer nach seinen Lieblingstieren fragen und eine Liste von 3
 # verschiedenen Tieren ausgeben.
@@ -75,7 +75,7 @@ stuff = [1, "zwo", 3, "und", ["eine", "Liste in der", "Liste"]]
 def frage_nach_lieblingstieren() -> List[str]:
     pass
 
-# %%
+# %% Lieblingstiere -- Test 40
 # Auf die einzelnen Elemente einer Liste kann man per Index zugreifen.
 # Das erste Element hat den Index 0, das zweite 1, usw.
 # Eine Liste mit n Elementen hat also Indices 0, 1, ..., n-1.

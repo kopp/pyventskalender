@@ -60,12 +60,12 @@ class Satzglied:
 class Satz:
     pass
 
-# %%
+# %% Member erstellen -- Test 10
 # Sorge jetzt dafür, dass wenn ein Satz erzeugt wird, er die vier Member
-# `adverbiale`, `verb`, `subjekt` und `objekt` anlegt.
+# `adverbiale`, `verb`, `subjekt` und `objekt` anlegt, alle vom Typ `Satzglied`.
 
 
-# %%
+# %% Member erstellen und initialisieren -- Tests 20 30
 # Wir wollen die Satzglieder zufällig aus einer Liste auswählen.
 # Sorge nun dafür, dass man bei der Erstellung von `Satzglied` die Liste der
 # möglichen Wörter übergeben kann und diese im Member `moeglichkeiten`

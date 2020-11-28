@@ -10,7 +10,7 @@
 def kuh_sinnspruch_beispiel():
     for anzahl_muhs in range(10):
         print("{} Kühe machen {} mal Mühe".format(anzahl_muhs, anzahl_muhs))
-# %%
+# %% Einfaches for -- Test 10
 # Das ist sprachlich noch nicht ganz sicher.
 # Um die Ausgabe zu verbessern, vervollständige die folgende Funktion so, dass sie
 # - bei 0 Kühen "0 Kühe machen keine Mühe"
@@ -21,7 +21,7 @@ def kuh_sinnspruch_beispiel():
 def kuehe_machen_muehe(anzahl: int) -> str:
     pass
 
-# %%
+# %% Weiteres for -- Test 20
 # Und jetzt vervollständige die folgende Funktion, damit sie eine Liste von
 # solchen sinnhaften Sprüchen ausgibt und zwar für alle Kuh-Anzahlen zwischen
 # zwei Zahlen.

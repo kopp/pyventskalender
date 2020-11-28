@@ -40,7 +40,7 @@ adressbuch = {
 # Eine Liste von allen eingebauten Exceptions ist hier:
 # https://docs.python.org/3/library/exceptions.html
 
-# %%
+# %% Input validieren -- Test 10
 # Vervollständige jetzt die folgende Funktion, die das Volumen eines Würfels in
 # Kubikmeter berechnen soll, wenn man ihr die Kantenlänge in Metern gibt.
 # Die Funktion soll einen ValueError werfen, wenn eine negative Kantenlänge
@@ -69,7 +69,7 @@ except KeyError:
 
 # Man kann mehrere `except`-Blöcke angeben, die auf verschiedene Fehler
 # reagieren.
-# %%
+# %% Input validieren -- Test 20
 # Vervollständige die Folgende Funktion, die eine Lise von Zahlen entgegen
 # nimmt und eine Liste von Volumina damit berechnet.
 # Sollte die Berechnung nicht funktionieren, soll der entsprechende Wert der

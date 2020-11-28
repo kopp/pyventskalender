@@ -38,7 +38,7 @@ def etwas_moegen(text: str):
 # zahlen einlesen
 # durchschnitt bilden
 
-# %%
+# %% Aus Datei extrahieren-- Test 10
 # Schreibe jetzt eine Funktion, die die Gewichte-Datei Zeile für Zeile ließt
 # und jeweils Name und Gewicht extrahiert.
 # Die Ausgabe erfolgt als Liste, die für jede übersetzte Zeile wieder eine
@@ -73,7 +73,7 @@ def extrahiere_gewichte(dateiname: str) -> List[List[str]]:
     pass
 
 
-# %%
+# %% In Zahlen konvertieren -- Test 20
 # Jetzt noch eine Kleinigkeit: Wenn man Regular Expressions verwendet, dann
 # versteht der Code nicht, ob man eine Zahl oder Text aus einem Text
 # extrahiert.

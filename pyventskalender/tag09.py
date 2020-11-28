@@ -1,22 +1,21 @@
-# Setzt Datei pyventskalender/beispieldaten_gewichte.txt voraus.
-#
 # Ein beliebtes Problem, das man mit Python lösen kann, ist, eine Textdatei zu
 # durchsuchen und daraus Daten zu generieren.
 # Hier wollen wir uns die Datei `beispieldaten_gewichte.txt` anschauen.
 # Sie enthält ein Gewicht pro Tag.
+# Setzt Datei pyventskalender/beispieldaten_gewichte.txt voraus.
 
 # %%
 # Eine Datei wird mit `open` geöffnet.
 # Hinweis: Das "r" steht für _read_, `datei` ist das Objekt, das den Inhalt der
 # Datei repräsentiert.
-# Man kann die Funktion verwenden per `datei_ausgeben("beispieldaten_gewichte.txt")`
+# Man kann die Funktion verwenden per `datei_ausgeben("beispieldaten_gewichte.txt")`.
 
 def datei_ausgeben(dateiname):
     with open(dateiname, "r") as datei:
         for zeile in datei:
             print(zeile)
 
-# %%
+# %% Messungen zählen -- Test 10
 # Vervollständige die Funktion so, dass sie ausgibt, wie viele Messungen es in
 # der betreffenden Datei für einen bestimmten Namen gibt.
 
@@ -34,7 +33,7 @@ def hilfe_wie_viele_messungen_von():
         ).decode()
     )
 
-# %%
+# %% Durchschnitt -- Test 20
 # Grade bei Gewicht, das täglich schwankt, ist es interessant, einen
 # Durchschnitt zu bilden.
 # Vervollständige deshalb die folgende Funktion, die einen Durchschnitt aus

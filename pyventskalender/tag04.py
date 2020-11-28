@@ -22,7 +22,7 @@ def tiergeraeusch(tier: str) -> str:
 
 tiergeraeusch("Affe")
 
-#%%
+#%% Einfache Abfrage -- Test 10
 # Die einfachsten Abfragen, die man machen kann, sind Vergleiche:
 # - Gleichheit: `==`
 # - Kleiner: `<`
@@ -54,7 +54,7 @@ def ist_sicher_lecker_aber_ungesund(essen: str) -> bool:
 
 ist_sicher_lecker_aber_ungesund("Zuckerwatte")
 
-# %%
+# %% Tipspiel -- Test 20
 # Damit können wir schon ein kleines Spiel bauen.
 # Hier wird eine Zufallszahl zwischen 1 und 20 gewählt:
 import random

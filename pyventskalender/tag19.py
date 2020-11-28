@@ -30,7 +30,7 @@ class Satz:
         self.objekt = Satzglied(MOEGLICHE_OBJEKTE)
 
 
-# %%
+# %% Methode hinzufügen -- Test 10
 # Erstelle jetzt eine Methode `zufaelliges_neues` in `Satzglied`, die ein neues
 # Element aus der Liste `self.moeglichkeiten` wählt und in `text` schreibt.
 # Du kannst das testen, indem du dir ein `Satzglied` erzeugst und die Funktion
@@ -38,12 +38,12 @@ class Satz:
 # man die Methode mehrmals aufruft.
 
 
-# %%
+# %% Methode hinzufügen -- Test 20
 # Um jetzt einen Zufallssatz zu bekommen, spendiere dem `Satz` bitte eine
 # Methode `zufaelligen_neuen`, der jedes Wort zufällig neu auswählt.
 
 
-# %%
+# %% __str__ Methode -- Test 30
 # Jetzt wollen wir den Satz endlich ausgeben.
 # Um Objekte als `str` auszugeben, füge eine Funktion `__str__` in `Satz`
 # hinzu, die einen `str` zurück gibt -- unseren Satz, bestehend aus den

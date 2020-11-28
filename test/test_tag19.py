@@ -19,7 +19,6 @@ class Tag19Tests(TestCase):
         self.assertGreater(len(verschiedene_texte), 2,
                            msg=f"Bei 50 wiederholungen von zufaelliges_neues gab es nur {len(verschiedene_texte)} verschiedene Ausgaben: {verschiedene_texte} -- das ist sehr suspekt")
 
-
     def test_20_zufaelligen_neuen_satz(self):
         satz = heute.Satz()
         self.assertIn("zufaelligen_neuen", dir(satz))
@@ -27,7 +26,6 @@ class Tag19Tests(TestCase):
             satz.zufaelligen_neuen()
             mock.assert_has_calls([call(), call(), call(), call()])
 
-    
     def test_30_str_bei_satz(self):
         satz = heute.Satz()
         satz.adverbiale.text = "Adverbiale"

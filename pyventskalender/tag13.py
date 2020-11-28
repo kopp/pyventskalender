@@ -8,7 +8,7 @@
 # markieren, das sieht dann bspw. so aus:
 geschichte = "Eines Tages <Verb in Vergangenheitsform> <Name> nach New York um <Substantiv> zu sehen."
 
-# %%
+# %% Regexp erzeugen -- Test 10
 # Erstelle jetzt eine Regular Expression, die ein einzelnes dieser zu
 # ersetzenden Teile findet (also eine Gruppe enthält, die den Teil in <>
 # findet).
@@ -53,7 +53,7 @@ base64.b64decode(
 ).decode("utf-8")
 
 
-# %%
+# %% Mad Libs -- Test 20
 # Jetzt zum eigentlichen Spiel:
 # Vervollständige die Funktion, sodass sie
 #  - zuerst alle zu ersetzenden Worte in der Geschichte findet
@@ -85,6 +85,3 @@ def spiele_mit_geschichten():
     for geschichte_codiert in geschichten_codiert:
         geschichte = base64.b64decode(geschichte_codiert).decode("utf-8")
         print(mad_libs(geschichte))
-
-
-# %%

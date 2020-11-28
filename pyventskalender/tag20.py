@@ -4,7 +4,7 @@
 #
 # Setzt Datei virtualenv_und_pip.md voraus.
 
-# %%
+# %% Venv erstellen -- Tests 10 20
 # Damit man Pakete später wieder einfach löschen kann, legt man am besten ein
 # Virtual Environment an.
 # Das geht am besten in der Konsole powershell.
@@ -27,7 +27,7 @@
 # Wenn du jetzt eine neue Konsole aufmachst, dann sorgt Visual Studio Code
 # dafür, dass du das Virtual Environment nutzt.
 
-# %%
+# %% Installieren per pip -- Test 30
 # Um jetzt tatsächlich dort etwas zu installieren öffne eine Konsole.
 # Um zu prüfen, ob sie das Virtual Environment verwendet, gib
 #     Get-Command python

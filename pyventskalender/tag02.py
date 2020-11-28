@@ -17,7 +17,7 @@
 # Jeder der Parameter hat einen Namen.
 # Die Funktion kann etwas mit den Parametern machen, und ein Ergebnis
 # zurückgeben.
-# Dazu wird das Wort `return` verwendet.
+# Dazu wird der Befehl `return` verwendet.
 #
 # %%
 # Beispielsweise könnte eine Funktion so aussehen:
@@ -74,16 +74,24 @@ def elchgeraeusch(wiederholungen):
         elchausspuch += "Mööö "  # a += b  bedeutet  a = a + b
     return elchausspuch
 
-# %%
+# %% Miaus -- Tests 10 20
 # Jetzt vervollständige bitte eine Funktion, die das gleiche für mit Kazten
 # macht.
 # Katzen machen "Miau".
 # Hinweis: `pass` bedeutet: das muss noch durch "echten" Code ersetzt werden.
+# Hinweis: Für diese Zelle gibt es eine Aufgabe.
+# Am Anfang der Zelle findest du, welche Tests des heutigen Tests sich mit
+# dieser Zelle beschäftigen (hier 10 und 20).
+# Wenn du `ich_will_meine_belohnung.py` laufen lässt, werden am Anfang viele Tests fehlschlagen.
+# Wenn du diese Zelle bearbeitest, musst du dich nur um die hier angegebenen
+# Tests kümmern -- also test_10_... und test_20_...
+# Am besten, du versuchst zuerst die Aufgabe zu erfüllen und lässt danach die
+# Tests laufen.
 
 def katzengeraeusch():
     pass
 
-# %%
+# %% Tierrufe addieren -- Test 30
 # Jetzt lassen wir die Tiere rechnen.
 # Hinweis: Zwei Strings kann man per "+" zusammensetzen, bspw.
 zusammengesetzter_text = "Hallo " + "Welt" + "!"
@@ -96,7 +104,7 @@ def addiere(elchrufe, katzenrufe):
     pass
 
 
-# %%
+# %% Tierlaute zählen -- Test 40
 # Wir können auch zählen, wie oft hier gerufen wird:
 
 def zaehle_tierlaute(tierrufe):
@@ -110,7 +118,7 @@ def zaehle_tierlaute(tierrufe):
     return anzahl_laute
 
 
-# %%
+# %% Tierlaute subtrahieren -- Test 50
 # Damit können wir jetzt rechnen:
 
 def subtrahiere_elchrufe_von_katzenrufen(elchrufe, katzenrufe):

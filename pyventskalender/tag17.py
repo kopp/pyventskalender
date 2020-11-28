@@ -42,7 +42,7 @@ katzen = [
 ]
 
 
-# %%
+# %% Methoden aufrufen -- Test 20
 # Vervollständige jetzt die folgende Funktion so, dass sie eine Liste von
 # Katzen entgegen nimmt und jede davon einen Ton machen lässt; das soll in
 # einen `str` zusammengefasst und ausgegeben werden.
@@ -53,12 +53,12 @@ def katzenkonzert_von(katzen):
     return ""
 
 
-# %%
+# %% Methode und Argument kombinieren -- Test 30
 # Das ist noch recht unübersichtlich -- modifiziere bitte `macht_ton` so, dass
 # die Ausgabe den Namen enthält, also "Felix macht Miauuuuu" für Felix usw.
 
 
-# %%
+# %% Methode hinzufügen -- Test 40
 # Und jetzt erweitere die Klasse `Katze` um eine Methode `frisst`, die als
 # Parameter ein Essen entgegennimmt.
 # Das Essen soll im Magen der Katze (eine Liste `self.magen`) gespeichert
@@ -66,7 +66,7 @@ def katzenkonzert_von(katzen):
 # Maus".
 
 
-# %%
+# %% Member anlegen -- Test 50
 # Jede Methode kann neue Daten an das Katze-Objekt hängen.
 # Es ist also völlig legitim, den `magen` erst in `frisst` anzulegen.
 # Schöner ist es aber, wenn die Katze schon mit Magen "erschaffen" wird.

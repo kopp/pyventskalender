@@ -1,4 +1,5 @@
 from unittest import TestCase
+from inspect import signature
 try:
     from pyventskalender import tag02_loesung as heute
 except ImportError:
@@ -7,13 +8,16 @@ except ImportError:
 
 class Tag02Tests(TestCase):
 
-    def test_10_anzahl_mooos(self):
-        expected = "Mööö Mööö "
-        self.assertEqual(heute.elchgeraeusch(2), expected)
+    def test_10_katzengeraeusch_parameter(self):
+        signatur_von_katzengeraeusch = signature(heute.katzengeraeusch)
+        anzahl_parameter = len(signatur_von_katzengeraeusch.parameters)
+        self.assertEqual(anzahl_parameter, 1,
+                         msg="katzengeraeusch sollte genau einen Paramerer entgegennehmen.")
 
     def test_20_anzahl_miaus(self):
-        expected = "Miau Miau "
-        self.assertEqual(heute.katzengeraeusch(2), expected)
+        self.assertEqual(heute.katzengeraeusch(1), "Miau ")
+        self.assertEqual(heute.katzengeraeusch(2), "Miau Miau ")
+        self.assertEqual(heute.katzengeraeusch(3), "Miau Miau Miau ")
 
     def test_30_addiere(self):
         self.assertEqual(heute.addiere(2, 5), 2 * "Mööö " + 5 * "Miau ")

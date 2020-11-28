@@ -38,7 +38,7 @@ def magst_du_reloaded(tiername: str) -> bool:
         if antwort == "ja":
             return "Super, du magst also {}".format(tiername)
 
-# %%
+# %% Ratespiel lösen -- Test 10
 # Damit können wir das erste einfache Spiel nicht nur selbst spielen, sondern
 # den Computer spielen lassen.
 # Hier ist nochmal das Spiel:

@@ -1,5 +1,5 @@
 # Noch sinnvoller kann man mit der `for`-Schleife arbeiten, wenn man damit Code
-# für die einzelnen Elemente einer Collection -- bspw. einer `list` ausführt.
+# für die einzelnen Elemente einer Collection -- bspw. einer `list` -- ausführt.
 
 
 # %%
@@ -11,7 +11,7 @@ def ich_mag(tiere):
         print("Ich mag {}".format(tier))
 
 
-# %%
+# %% Listenelemente untersuchen -- Test 10
 # Vervollständige jetzt die Funktion, die aus einer Liste alle Säugetiere
 # heraussucht.
 # Alle bekannten Säugetiere sind in 
@@ -36,7 +36,7 @@ from typing import List
 def saeugetiere_aus(tiere: List[str]) -> List[str]:
     pass
 
-# %%
+# %% Listenelemente ausgeben -- Test 20
 # Viele Menschen mögen Tiere.
 # Die folgende Funktion soll alle Kombinationen zwischen Mensch und Tier finden
 # und dann jeweils den Satz
