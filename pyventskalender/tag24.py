@@ -92,7 +92,8 @@ if __name__ == "__main__":
 # Hinweis: Damit `spieler` nicht direkt am Anfang mit einem Hindernis
 # kollidiert, wähle für die x- und y-Komponente jeweils mindestens 100.
 # Um eine Zufallszahl zwischen a und b zu bekommen, verwende `random.randint(a, b)`.
-# Hinweis: Der `spieler` kann auch außerhalb des sichtbaren Spielfelds laufen.
+# Hinweis zum Spielen: Der `spieler` kann auch außerhalb des sichtbaren
+# Spielfelds laufen.
 
 # %% Verloren -- Test 40
 # Wenn der `spieler` ein Hindernis aus `hindernisse` berührt, hat er verloren.

@@ -10,8 +10,11 @@ geschichte = "Eines Tages <Verb in Vergangenheitsform> <Name> nach New York um <
 
 # %% Regexp erzeugen -- Test 10
 # Erstelle jetzt eine Regular Expression, die ein einzelnes dieser zu
-# ersetzenden Teile findet (also eine Gruppe enthält, die den Teil in <>
+# ersetzenden Teile findet (also genau eine Gruppe enthält, die den Teil in <>
 # findet).
+# Um später einen `str` nach einem oder mehrerer solcher Gruppen abzusuchen,
+# verwendet man `die_regexp.findall(der_str)`, was eine Liste von Fundstücken
+# auswirft.
 # In `"foo <bar> asdf"` sollte also bspw. `<bar>` gefunden werden.
 # In `"foo <bar> asdf <x>"` sollte `<bar>` und `<x>` gefunden werden.
 #

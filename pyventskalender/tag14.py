@@ -24,8 +24,8 @@
 # %% Bilder herunterladen -- Tests 10 20
 # Diese Bilder finden sich unter
 # https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
-# Lade die Datei herunter und speichere Sie hier in dem Ordner mit dem Namen
-# `galgenmannbilder.py`.
+# Lade die Datei herunter und speichere Sie hier in dem Ordner pyventskalender
+# (in dem auch diese Datei hier liegt) mit dem Namen `galgenmannbilder.py`.
 
 # %% Bilder importieren -- Test 30
 # Wenn das geschehen ist, dann kannst du die Bilder importieren per

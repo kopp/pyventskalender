@@ -37,7 +37,7 @@ class Tag06Tests(TestCase):
                 reply = heute.frage_nach_lieblingstieren()
                 self.assertEqual(len(prompts), 3)
                 for prompt in prompts:
-                    self.assertEqual(prompt, "Nenne ein Lieblingstier")
+                    self.assertEqual(prompt, "Nenne ein Lieblingstier:")
                 self.assertEqual(fake_out.getvalue(), "")
                 self.assertEqual(reply, expected_replies)
 
@@ -51,7 +51,7 @@ class Tag06Tests(TestCase):
                 reply = heute.frage_nach_lieblingstieren()
                 self.assertEqual(len(prompts), 4)
                 for prompt in prompts:
-                    self.assertEqual(prompt, "Nenne ein Lieblingstier")
+                    self.assertEqual(prompt, "Nenne ein Lieblingstier:")
                 self.assertEqual(fake_out.getvalue(), "A hattest du schon gesagt.\n")
                 self.assertEqual(reply, expected_replies)
 

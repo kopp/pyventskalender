@@ -18,8 +18,7 @@ class Tag11Tests(TestCase):
         )
 
     def test_20_extrahiere_gewichte(self):
-        pseudo_file = mock_open(read_data="""
-1.11. Herrmann wiegt 72kg
+        pseudo_file = mock_open(read_data="""1.11. Herrmann wiegt 72kg
 1.11. Caro wiegt 62kg
 1.11. Paul wiegt 32kg
 2.11. Herrmann wiegt 73kg
@@ -28,8 +27,7 @@ class Tag11Tests(TestCase):
 3.11. Caro wiegt 59kg
 3.11. Paul wiegt 32kg
 4.11. Caro wiegt 60kg
-6.11. Caro wiegt 60kg
-        """)
+6.11. Caro wiegt 60kg""")
         with patch('builtins.open', pseudo_file):
             gewichte = heute.extrahiere_gewichte("fake.txt")
             self.assertEqual(type(gewichte), dict)

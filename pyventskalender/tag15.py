@@ -43,10 +43,10 @@ except ImportError:
 # Außerdem hat es keine "Position" in der Menge -- also man kann nur sagen, ob
 # das Element vorhanden ist, oder nicht.
 # Man erzeugt eine Menge per `set()`, beispielsweise
-set([1,2,3])
+set([1, 2, 3])
 # Hier wird die Menge aus einer Liste erzeugt.
 # Die Informationen über Reihenfolge oder Anzahl gehen dabei verloren:
-set([1,2,3]) == set([3,1,2]) == set([1,2,2,2,2,2,2,2,2,2,2,3])
+set([1, 2, 3]) == set([3, 1, 2]) == set([1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3])
 
 # %%
 # Die sinnvollen Operationen, die man mit einer Menge durchführen kann, sind:

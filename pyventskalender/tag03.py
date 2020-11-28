@@ -59,7 +59,7 @@ def ich_mag():
 # jeweilige Anzahl angeben können, bspw.
 #     def ich_will(5, "Katzen", 3, "Hunde")
 # und die Ausgabe soll daraus wieder einen Satz machen:
-#     "Ich mag 5 KATZEN und 3 HUNDE!.".format(
+#     "Ich mag 5 KATZEN und 3 HUNDE!."
 
 def ich_will():
     pass

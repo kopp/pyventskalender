@@ -10,6 +10,7 @@
 def kuh_sinnspruch_beispiel():
     for anzahl_muhs in range(10):
         print("{} Kühe machen {} mal Mühe".format(anzahl_muhs, anzahl_muhs))
+
 # %% Einfaches for -- Test 10
 # Das ist sprachlich noch nicht ganz sicher.
 # Um die Ausgabe zu verbessern, vervollständige die folgende Funktion so, dass sie
@@ -17,6 +18,7 @@ def kuh_sinnspruch_beispiel():
 # - bei 1 Kuh "1 Kuh macht Muh"
 # - bei mehreren Kühen den Text wie oben, also bspw.
 #   bei 4 Kühen "4 Kühe machen 4 mal Mühe"
+# ausgibt (`return` -- nicht `print`).
 
 def kuehe_machen_muehe(anzahl: int) -> str:
     pass
