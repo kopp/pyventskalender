@@ -9,6 +9,7 @@ Die aktuellen Probleme bekommt man, indem man
 
     python gib_mir_die_heutige_aufgabe.py
 
+ausführt.
 Um zu schauen, ob man die Aufgabe erfüllt hat, lässt man einfach
 
     python ich_will_meine_belohnung.py
@@ -63,3 +64,10 @@ heruntergeladen.
 Um eine eigene Konfiguration zu hinterlegen, sollte diese Datei angepasst werden und unter den Namen
 [`pyventskalender.config.json`](pyventskalender.config.json)
 gespeichert werden.
+
+
+# Feedback
+
+Falls es Fehler oder Ideen gibt, wie man den PyVentskalender noch verbessern kann, erstellt gerne
+[ein Issue](https://github.com/kopp/pyventskalender/issues/new)
+mit einer kurzen Beschreibung.
