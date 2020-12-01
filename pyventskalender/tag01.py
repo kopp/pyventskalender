@@ -7,22 +7,20 @@
 # Das hier (alles hinter den `#`) ist übrigens ein Kommentar.
 # Python ließt diese Kommentare nicht -- die sind nur für Menschen gemacht.
 # Darin kann man beispielsweise beschreiben, warum man ein Problem so und nicht
-# anderst gelöst hat -- also seine Überlegungen, Tips usw. festhalten.
+# anders gelöst hat -- also seine Überlegungen, Tipps usw. festhalten.
 #
-# Kleiner Tip:
+# Kleiner Tipp:
 # Lass mal die Tests laufen, bevor du die Aufgabe verbesserst, und versuche zu
 # verstehen, was die Fehlermeldung dir sagen will.
+# Um die Tests laufen zu lassen, musst du
+# 1. die Datei speichern (Strg+S)
+# 2. ein Terminal öffnen und dort `python ich_will_meine_belohnung.py` eingeben
 #
 # Und noch eine Idee:
 # Um zu sehen, dass das hier wirklich ein eigenes Programm ist, kannst du es
 # laufen lassen.
-# Unter Windows geht das am einfachsten, indem du im Dateiexplorer auf die
-# Datei doppelklickst.
-# Alternativ kannst du in den Ordner navigieren, der die Datei enthält, dann
-# oben in der "Adresszeile" `powershell` eintippen.
-# Es sollte sich jetzt eine Konsole öffnen.
-# Hier kannst du dann `python tag01.py` eingeben und dein erstes Programm
-# sehen.
+# Wenn du in Visual Studio Code arbeitest, geht das am einfachsten, indem du
+# ein Terminal öffnest und dort `python pyventskalender/tag01.py` eintippst.
 #
 # Die einfachste Art, mit dem Code zu arbeiten, ist aber, ihn als einzelne
 # "Zellen" auszuführen.
@@ -32,8 +30,14 @@
 # bekommt ein interaktives Fenster, in dem man die Ausgaben der Zelle anschauen
 # kann und direkt neuen Code eintippen kann -- mit Shift+Enter wird er dann
 # ausgeführt.
-# Hier kann man mit den hoch/runter Pfeiltasten auf der Tastatur zu vorherigen
-# Eingaben wechseln, diese anpassen und wieder per Shift+Enter ausführen.
+# Nutze das Fenster links um deine Datei zu editieren und das Fenster rechts,
+# um Dinge auszuprobieren.
+# Wenn du Code links änderst, kannst du die Zelle neu ausführen, und das
+# Ergebnis sehen.
+# Du kannst rechts unten aber auch direkt Code eintippen und per Shift+Enter
+# ausführen.
+# Um hier an deine alte Eingabe zu gelangen und diese zu ändern, verwende die
+# hoch/runter Pfeiltasten auf der Tastatur.
 # Ist man mit einem Ergebnis zufrieden und möchte es speichern, kann man das
 # durch Klicken auf das Kopiersymbol neben der Ausgabe machen.
 
