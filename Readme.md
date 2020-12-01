@@ -19,6 +19,15 @@ Wenn man fertig ist, wird hier die Belohnung des Tages angezeigt.
 Wenn man noch nicht fertig ist, dann werden hier die Probleme angezeigt, die
 man noch lösen muss.
 
+Hat man es mal einen Tag nicht geschafft, kann man sich die "verpassten"
+Tage einen nach dem anderen holen.
+Dazu gibt man bspw.
+`python gib_mir_die_heutige_aufgabe.py --tag 3`
+ein, um sich die Aufgaben von Tag 3 zu laden, bearbeitet die, und holt sich
+dann die Aufgaben von Tag 4 via
+`python gib_mir_die_heutige_aufgabe.py --tag 4`
+usw.
+
 Die Probleme werden übrigens anhand von
 [Unit Tests](https://www.it-agile.de/wissen/agiles-engineering/unit-tests/)
 aufgedeckt.
@@ -48,6 +57,7 @@ eingibt.
 - Das
   [Python Plugin für Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   muss in Visual Studio Code installiert sein.
+
 
 ## Den PyVentskalender selbst "installieren"
 
