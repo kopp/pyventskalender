@@ -44,7 +44,7 @@ def _lade_datei_aus_internet(url: str, dateipfad: str, ueberschreiben: bool = Fa
     lokaler_pfad = join(LOCAL_BASE_PATH, dateipfad)
     modus_zum_schreiben = "w" if ueberschreiben else "x"
     _stelle_sicher_dass_ordner_existiert_fuer(lokaler_pfad)
-    with open(lokaler_pfad, modus_zum_schreiben) as lokale_datei:
+    with open(lokaler_pfad, modus_zum_schreiben, encoding="utf-8") as lokale_datei:
         lokale_datei.write(inhalt.decode("utf-8"))
 
 
